@@ -1,21 +1,21 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karte.iOS.Core", "Karte.iOS.Core\Karte.iOS.Core.csproj", "{DFD7F26B-FE72-4F5D-876C-13166A876E9B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karte.iOS.Core", "source\Karte.iOS.Core\Karte.iOS.Core.csproj", "{DFD7F26B-FE72-4F5D-876C-13166A876E9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarteiOSSample", "..\sample\KarteiOSSample.csproj", "{398C6869-E034-4127-859A-A3149DFA6A26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarteiOSSample", "..\..\samples\ios-unified\KarteiOSSample\KarteiOSSample.csproj", "{398C6869-E034-4127-859A-A3149DFA6A26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarteFormsSample.Android", "..\..\FormsSample\KarteFormsSample.Android\KarteFormsSample.Android.csproj", "{37093989-CEA2-4628-92F7-4E9BB144159D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarteFormsSample.Android", "..\..\samples\xamarin-forms\KarteFormsSample.Android\KarteFormsSample.Android.csproj", "{37093989-CEA2-4628-92F7-4E9BB144159D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarteFormsSample.iOS", "..\..\FormsSample\KarteFormsSample.iOS\KarteFormsSample.iOS.csproj", "{EEFA5C31-3D61-427F-955E-8E9D2E22A9A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarteFormsSample.iOS", "..\..\samples\xamarin-forms\KarteFormsSample.iOS\KarteFormsSample.iOS.csproj", "{EEFA5C31-3D61-427F-955E-8E9D2E22A9A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarteFormsSample", "..\..\FormsSample\KarteFormsSample\KarteFormsSample.csproj", "{505EEC0A-1A60-42B2-B060-438220301CED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarteFormsSample", "..\..\samples\xamarin-forms\KarteFormsSample\KarteFormsSample.csproj", "{505EEC0A-1A60-42B2-B060-438220301CED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karte.iOS.InAppMessaging", "Karte.iOS.InAppMessaging\Karte.iOS.InAppMessaging.csproj", "{639F0B73-C0AB-4DD5-802C-134226D8BABA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karte.iOS.InAppMessaging", "source\Karte.iOS.InAppMessaging\Karte.iOS.InAppMessaging.csproj", "{639F0B73-C0AB-4DD5-802C-134226D8BABA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karte.iOS.Variables", "Karte.iOS.Variables\Karte.iOS.Variables\Karte.iOS.Variables.csproj", "{64437FD8-F87B-402D-A542-010C1D604AC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karte.iOS.Variables", "source\Karte.iOS.Variables\Karte.iOS.Variables\Karte.iOS.Variables.csproj", "{64437FD8-F87B-402D-A542-010C1D604AC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karte.iOS.Notification", "Karte.iOS.Notification\Karte.iOS.Notification.csproj", "{F9414AEA-3B6A-461A-ADCE-0D64C95FD7DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karte.iOS.Notification", "source\Karte.iOS.Notification\Karte.iOS.Notification.csproj", "{F9414AEA-3B6A-461A-ADCE-0D64C95FD7DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

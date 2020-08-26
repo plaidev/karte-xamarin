@@ -23,7 +23,7 @@
         <DefineConstants>DEBUG</DefineConstants>
         <ErrorReport>prompt</ErrorReport>
         <WarningLevel>4</WarningLevel>
-        <MtouchArch>x86_64</MtouchArch>
+        <MtouchArch>i386, x86_64</MtouchArch>
         <MtouchLink>None</MtouchLink>
         <MtouchDebug>true</MtouchDebug>
 <CodesignKey>iPhone Developer</CodesignKey>
@@ -152,20 +152,19 @@
       </PackageReference>
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\source\Karte.iOS.InAppMessaging\Karte.iOS.InAppMessaging.csproj">
-        <Project>{639F0B73-C0AB-4DD5-802C-134226D8BABA}</Project>
-        <Name>Karte.iOS.InAppMessaging</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\source\Karte.iOS.Core\Karte.iOS.Core.csproj">
+      <ProjectReference Include="..\..\..\src\ios-unified\source\Karte.iOS.Core\Karte.iOS.Core.csproj">
         <Project>{DFD7F26B-FE72-4F5D-876C-13166A876E9B}</Project>
         <Name>Karte.iOS.Core</Name>
       </ProjectReference>
-      <ProjectReference Include="..\source\Karte.iOS.Notification\Karte.iOS.Notification.csproj">
+      <ProjectReference Include="..\..\..\src\ios-unified\source\Karte.iOS.InAppMessaging\Karte.iOS.InAppMessaging.csproj">
+        <Project>{639F0B73-C0AB-4DD5-802C-134226D8BABA}</Project>
+        <Name>Karte.iOS.InAppMessaging</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\..\..\src\ios-unified\source\Karte.iOS.Notification\Karte.iOS.Notification.csproj">
         <Project>{F9414AEA-3B6A-461A-ADCE-0D64C95FD7DD}</Project>
         <Name>Karte.iOS.Notification</Name>
-        <ReferenceSourceTarget>ProjectReference</ReferenceSourceTarget>
       </ProjectReference>
-      <ProjectReference Include="..\source\Karte.iOS.Variables\Karte.iOS.Variables\Karte.iOS.Variables.csproj">
+      <ProjectReference Include="..\..\..\src\ios-unified\source\Karte.iOS.Variables\Karte.iOS.Variables\Karte.iOS.Variables.csproj">
         <Project>{64437FD8-F87B-402D-A542-010C1D604AC4}</Project>
         <Name>Karte.iOS.Variables</Name>
       </ProjectReference>
