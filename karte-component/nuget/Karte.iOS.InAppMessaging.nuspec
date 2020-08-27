@@ -15,7 +15,7 @@
     <copyright>Copyright PLAID, Inc.</copyright>
     <tags>Karte Plaid</tags>
     <dependencies>
-      <dependency id="Karte.iOS.Core" version="0.0.1" />
+      <dependency id="Karte.iOS.Core" version="0.0.2" />
     </dependencies>
   </metadata>
   <files>
