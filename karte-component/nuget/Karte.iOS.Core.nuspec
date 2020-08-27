@@ -15,4 +15,7 @@
     <copyright>Copyright PLAID, Inc.</copyright>
     <tags>Karte Plaid</tags>
   </metadata>
+  <files>
+    <file src="../lib/ios-unified/Karte.iOS.Core.dll" target="lib/Xamarin.iOS10" />
+  </files>
 </package>
