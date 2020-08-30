@@ -47,15 +47,15 @@
     <ObjcBindingCoreSource Include="Structs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\..\frameworks\KarteCore\KarteCore.framework">
+    <NativeReference Include="..\..\frameworks\KarteCore.framework">
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
     </NativeReference>
-    <NativeReference Include="..\..\frameworks\KarteXamarin\KarteXamarin.framework">
+    <NativeReference Include="..\..\frameworks\KarteXamarin.framework">
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
     </NativeReference>
-    <NativeReference Include="..\..\frameworks\KarteUtilities\KarteUtilities.framework">
+    <NativeReference Include="..\..\frameworks\KarteUtilities.framework">
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
     </NativeReference>

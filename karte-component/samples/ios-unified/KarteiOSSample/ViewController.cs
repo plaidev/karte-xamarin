@@ -12,7 +12,7 @@ using Karte.iOS.Notification;
 
 namespace KarteiOSSample
 {
-    public partial class ViewController : UIViewController
+    public partial class ViewController : UIViewController, IWKNavigationDelegate
     {
         SampleIDFADelegate idfaDelegate;
         SampleInAppMessagingDelegate iamDelegate;
@@ -24,7 +24,7 @@ namespace KarteiOSSample
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
+            
             //For iam delegate testing
             iamDelegate = new SampleInAppMessagingDelegate();
             KRTInAppMessaging.Shared.Delegate = iamDelegate;
@@ -39,6 +39,8 @@ namespace KarteiOSSample
             KRTInAppMessaging.Configure();
             KRTNotification.Configure();
             KRTVariables.Configure();
+            KRTTracker.View("signup", "会員登録");
+
 
             System.Diagnostics.Debug.WriteLine("AdvertisingIdentifierString: " + idfaDelegate.AdvertisingIdentifierString);
             System.Diagnostics.Debug.WriteLine("VisitorId: " + KRTApp.VisitorId);
@@ -91,6 +93,11 @@ namespace KarteiOSSample
                             KRTTracker.View("banner");
                             break;
                         case "Track":
+                            KRTTracker.Track("favorite", new NSDictionary(
+                                "id", "P00003",
+                                "name", "ミネラルウォーター（500ml）",
+                                "price", "100"
+                            ));
                             var task = KRTTracker.Track("buy", new NSDictionary("name", "sample-name"));
                             task.Completion = (isSuccess) =>
                             {
@@ -113,7 +120,11 @@ namespace KarteiOSSample
 
                             var webView = new WKWebView(CoreGraphics.CGRect.Empty, new WKWebViewConfiguration());
                             KRTUserSync.SetUserSyncScriptWithWebView(webView);
-                            webView.LoadRequest(new NSUrlRequest(new NSUrl("https://karte.io")));
+                            var url = new NSUrl("https://karte.io");
+                            if (url != null)
+                            {
+                                webView.LoadRequest(new NSUrlRequest(url));
+                            }
                             System.Diagnostics.Debug.WriteLine("WebView UserScripts: " + webView.Configuration.UserContentController.UserScripts.First().Source);
                             break;
                         case "OptOut":
@@ -177,6 +188,7 @@ namespace KarteiOSSample
                 KRTVariables.TrackVariableOpen(variables, nulDict);
                 KRTVariables.TrackVariableOpen(null, new NSDictionary("test-key", "test-value"));
                 KRTVariables.TrackVariableOpen(null, null);
+
             });
         }
     }

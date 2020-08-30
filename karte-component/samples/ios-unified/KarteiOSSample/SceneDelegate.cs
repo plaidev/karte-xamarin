@@ -20,7 +20,7 @@ namespace NewSingleViewTemplate
             // This delegate does not imply the connecting scene or session are new (see UIApplicationDelegate `GetConfiguration` instead).
             if (connectionOptions.UrlContexts?.Count > 0)
             {
-                var context = connectionOptions.UrlContexts.ToArray<UIOpenUrlContext>().First<UIOpenUrlContext>();
+                var context = connectionOptions.UrlContexts.ToArray<UIOpenUrlContext>().First();
                 if (context != null)
                 {
                     KRTApp.Application(UIApplication.SharedApplication, context.Url);
@@ -33,7 +33,7 @@ namespace NewSingleViewTemplate
         {
             if (urlContexts?.Count > 0)
             {
-                var context = urlContexts.ToArray<UIOpenUrlContext>().First<UIOpenUrlContext>();
+                var context = urlContexts.ToArray<UIOpenUrlContext>().First();
                 if (context != null)
                 {
                     KRTApp.Application(UIApplication.SharedApplication, context.Url);

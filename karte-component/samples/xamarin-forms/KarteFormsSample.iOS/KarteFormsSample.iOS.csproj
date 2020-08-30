@@ -143,7 +143,7 @@
       <Project>{505EEC0A-1A60-42B2-B060-438220301CED}</Project>
       <Name>KarteFormsSample</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Karte.iOS\source\Karte.iOS.Core\Karte.iOS.Core.csproj">
+    <ProjectReference Include="..\..\..\src\ios-unified\source\Karte.iOS.Core\Karte.iOS.Core.csproj">
       <Project>{DFD7F26B-FE72-4F5D-876C-13166A876E9B}</Project>
       <Name>Karte.iOS.Core</Name>
     </ProjectReference>

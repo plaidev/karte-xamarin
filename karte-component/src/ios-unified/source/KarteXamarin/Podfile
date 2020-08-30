@@ -1,0 +1,26 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+source 'https://cdn.cocoapods.org/'
+
+target 'KarteXamarin' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for KarteXamarin
+  pod 'KarteCore', '2.7.0'
+
+  static_frameworks = ['KarteCore']
+
+  # Make KarteCore dynamic
+  pre_install do |installer|
+    installer.pod_targets.each do |pod|
+      if static_frameworks.include?(pod.name)
+        puts "Overriding the build_as_static_framework? method for #{pod.name}"
+        def pod.build_as_static_framework?;
+          false
+        end
+      end
+    end
+  end
+  
+end

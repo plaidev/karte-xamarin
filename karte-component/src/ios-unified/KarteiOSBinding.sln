@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarteFormsSample", "..\..\s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karte.iOS.InAppMessaging", "source\Karte.iOS.InAppMessaging\Karte.iOS.InAppMessaging.csproj", "{639F0B73-C0AB-4DD5-802C-134226D8BABA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karte.iOS.Variables", "source\Karte.iOS.Variables\Karte.iOS.Variables\Karte.iOS.Variables.csproj", "{64437FD8-F87B-402D-A542-010C1D604AC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karte.iOS.Variables", "source\Karte.iOS.Variables\Karte.iOS.Variables.csproj", "{64437FD8-F87B-402D-A542-010C1D604AC4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karte.iOS.Notification", "source\Karte.iOS.Notification\Karte.iOS.Notification.csproj", "{F9414AEA-3B6A-461A-ADCE-0D64C95FD7DD}"
 EndProject

@@ -48,7 +48,7 @@
     <ObjcBindingCoreSource Include="Structs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\..\frameworks\KarteRemoteNotification\KarteRemoteNotification.framework">
+    <NativeReference Include="..\..\frameworks\KarteRemoteNotification.framework">
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
     </NativeReference>

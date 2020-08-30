@@ -83,15 +83,26 @@ namespace KarteiOSSample
         [Export("application:didReceiveRemoteNotification:fetchCompletionHandler:")]
         public void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
-            // If you are receiving a notification message while your app is in the background,
-            // this callback will not be fired till the user taps on the notification launching the application.
-            // TODO: Handle data of notification
 
-            // With swizzling disabled you must let Messaging know about the message, for Analytics
-            //Messaging.SharedInstance.AppDidReceiveMessage (userInfo);
-
-            // Print full message.
-            Console.WriteLine(userInfo);
+            switch (application.ApplicationState)
+            {
+                case UIApplicationState.Active:
+                case UIApplicationState.Inactive:
+                    // KARTE経由のプッシュ通知であるか判定
+                    var notification = new KRTNotification(userInfo);
+                    if (notification != null)
+                    {
+                        // KARTE経由のプッシュ通知
+                        notification.HandleNotification();
+                    }
+                    else
+                    {
+                        // KARTE以外のシステムから送信されたプッシュ通知   
+                    }
+                    break;
+                case UIApplicationState.Background:
+                    break;
+            }
 
             completionHandler(UIBackgroundFetchResult.NewData);
         }
@@ -116,8 +127,14 @@ namespace KarteiOSSample
         {
             var userInfo = response.Notification.Request.Content.UserInfo;
             var notification = new KRTNotification(userInfo);
+
+            // KARTE経由のプッシュ通知であるか判定
             if (notification != null)
             {
+
+                System.Diagnostics.Debug.WriteLine($"notification.url: {notification.Url}");
+
+                // KARTE経由のプッシュ通知
                 notification.HandleNotification();
             }
             else

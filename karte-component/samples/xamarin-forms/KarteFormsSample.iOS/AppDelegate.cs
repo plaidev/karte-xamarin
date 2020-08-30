@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Karte.iOS.Core;
 
 namespace KarteFormsSample.iOS
 {
@@ -24,6 +25,9 @@ namespace KarteFormsSample.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+
+            KRTApp.SetupWithAppKey("APP_KEY");
+            KRTTracker.Track("test");
 
             return base.FinishedLaunching(app, options);
         }
