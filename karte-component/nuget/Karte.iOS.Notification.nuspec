@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Karte.iOS.Notification</id>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <authors>Plaid</authors>
     <owners>Plaid</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -15,7 +15,7 @@
     <copyright>Copyright PLAID, Inc.</copyright>
     <tags>Karte Plaid</tags>
     <dependencies>
-      <dependency id="Karte.iOS.Core" version="0.0.3" />
+      <dependency id="Karte.iOS.Core" version="0.0.4" />
       <dependency id="Xamarin.Firebase.iOS.CloudMessaging" version="4.3.0" />
     </dependencies>
   </metadata>
