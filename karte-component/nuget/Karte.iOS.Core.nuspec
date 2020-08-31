@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Karte.iOS.Core</id>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
     <authors>Plaid</authors>
     <owners>Plaid</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
