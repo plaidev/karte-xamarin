@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Karte.iOS.InAppMessaging</id>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
     <authors>Plaid</authors>
     <owners>Plaid</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -15,7 +15,7 @@
     <copyright>Copyright PLAID, Inc.</copyright>
     <tags>Karte Plaid</tags>
     <dependencies>
-      <dependency id="Karte.iOS.Core" version="0.0.5" />
+      <dependency id="Karte.iOS.Core" version="0.0.6" />
     </dependencies>
   </metadata>
   <files>

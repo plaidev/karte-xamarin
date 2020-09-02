@@ -29,12 +29,20 @@ public class KarteConfigurationXamarin: NSObject {
     
     @objc
     public var isDryRun: Bool {
-        self.configuration.isDryRun
+        get {
+            self.configuration.isDryRun
+        } set {
+            self.configuration.isDryRun = newValue
+        }
     }
     
     @objc
     public var isOptOut: Bool {
-        self.configuration.isOptOut
+        get {
+            self.configuration.isOptOut
+        } set {
+            self.configuration.isOptOut = newValue
+        }
     }
     
     @objc

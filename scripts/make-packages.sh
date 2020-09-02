@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+cd `dirname $0`
+
 echo "Define parameters"
 
 NUGET_DIR_PATH="../karte-component/nuget"

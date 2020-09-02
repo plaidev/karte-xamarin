@@ -2,10 +2,6 @@
 
 using ObjCRuntime;
 using Foundation;
-using UIKit;
-
-using Karte.iOS.Variables;
-using Karte.iOS.Core;
 
 namespace Karte.iOS.Variables
 {

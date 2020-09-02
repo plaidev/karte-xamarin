@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+cd `dirname $0`
+
 echo "Define parameters"
 
 SRC_PATH="../karte-component/src/ios-unified/source"

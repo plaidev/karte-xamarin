@@ -237,8 +237,8 @@ SWIFT_CLASS_NAMED("KarteConfigurationXamarin")
 @interface KRTConfigurationXamarin : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) KRTConfigurationXamarin * _Nonnull defaultConfiguration;)
 + (KRTConfigurationXamarin * _Nonnull)defaultConfiguration SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly) BOOL isDryRun;
-@property (nonatomic, readonly) BOOL isOptOut;
+@property (nonatomic) BOOL isDryRun;
+@property (nonatomic) BOOL isOptOut;
 @property (nonatomic, weak) id <KRTIDFADelegateXamarin> _Nullable idfaDelegate;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -534,8 +534,8 @@ SWIFT_CLASS_NAMED("KarteConfigurationXamarin")
 @interface KRTConfigurationXamarin : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) KRTConfigurationXamarin * _Nonnull defaultConfiguration;)
 + (KRTConfigurationXamarin * _Nonnull)defaultConfiguration SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly) BOOL isDryRun;
-@property (nonatomic, readonly) BOOL isOptOut;
+@property (nonatomic) BOOL isDryRun;
+@property (nonatomic) BOOL isOptOut;
 @property (nonatomic, weak) id <KRTIDFADelegateXamarin> _Nullable idfaDelegate;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end

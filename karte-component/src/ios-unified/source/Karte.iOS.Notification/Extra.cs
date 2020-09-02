@@ -24,15 +24,5 @@ namespace Karte.iOS.Notification
             IntPtr krtAppHandle = ObjCRuntime.Class.GetHandle("KRTApp");
             void_objc_msgSend_intptr(krtAppHandle, selector.Handle, nsstr.Handle);
         }
-
-        public static void TrackClickWithUserInfo(NSDictionary userInfo)
-        {
-            if (userInfo == null)
-                return;
-
-            var selector = new Selector("trackClickWithUserInfo:");
-            IntPtr krtTrackerHandle = ObjCRuntime.Class.GetHandle("KRTTracker");
-            void_objc_msgSend_intptr(krtTrackerHandle, selector.Handle, userInfo.Handle);
-        }
     }
 }

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/KarteXamarin-Swift.h</key>
 		<data>
-		C8ZmYAYAE+6agqICsE5oThNK9sk=
+		g45IjKao887siWtuv6Nog/p8wSU=
 		</data>
 		<key>Headers/KarteXamarin.h</key>
 		<data>
@@ -18,23 +18,23 @@
 		</data>
 		<key>Modules/KarteXamarin.swiftmodule/Project/arm.swiftsourceinfo</key>
 		<data>
-		SY9hGsAjTSDG64BQpc3y2e/OR3c=
+		MWps7LGXIOKHkB8vCZXFHh2HVhw=
 		</data>
 		<key>Modules/KarteXamarin.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		kOkkfxqTZR7nyOTRPW4Ro2uAyiY=
+		PEpuOi/zcTJCC6aNbHWFocrJhnU=
 		</data>
 		<key>Modules/KarteXamarin.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		kOkkfxqTZR7nyOTRPW4Ro2uAyiY=
+		PEpuOi/zcTJCC6aNbHWFocrJhnU=
 		</data>
 		<key>Modules/KarteXamarin.swiftmodule/Project/armv7-apple-ios.swiftsourceinfo</key>
 		<data>
-		SY9hGsAjTSDG64BQpc3y2e/OR3c=
+		MWps7LGXIOKHkB8vCZXFHh2HVhw=
 		</data>
 		<key>Modules/KarteXamarin.swiftmodule/Project/armv7.swiftsourceinfo</key>
 		<data>
-		SY9hGsAjTSDG64BQpc3y2e/OR3c=
+		MWps7LGXIOKHkB8vCZXFHh2HVhw=
 		</data>
 		<key>Modules/KarteXamarin.swiftmodule/arm.swiftdoc</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Modules/KarteXamarin.swiftmodule/arm.swiftmodule</key>
 		<data>
-		ly23MJVWjZckkeLkkn7NzohLpM4=
+		YPWnHw7Rpxc9dDxEDwTrXgQXp24=
 		</data>
 		<key>Modules/KarteXamarin.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/KarteXamarin.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		dlgRAXaBOUK2ZgGWezhZ8Xep68I=
+		KH+QWvGF9FobMrwAVVHJa20UkRE=
 		</data>
 		<key>Modules/KarteXamarin.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Modules/KarteXamarin.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		dlgRAXaBOUK2ZgGWezhZ8Xep68I=
+		KH+QWvGF9FobMrwAVVHJa20UkRE=
 		</data>
 		<key>Modules/KarteXamarin.swiftmodule/armv7-apple-ios.swiftdoc</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Modules/KarteXamarin.swiftmodule/armv7-apple-ios.swiftmodule</key>
 		<data>
-		ly23MJVWjZckkeLkkn7NzohLpM4=
+		YPWnHw7Rpxc9dDxEDwTrXgQXp24=
 		</data>
 		<key>Modules/KarteXamarin.swiftmodule/armv7.swiftdoc</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>Modules/KarteXamarin.swiftmodule/armv7.swiftmodule</key>
 		<data>
-		ly23MJVWjZckkeLkkn7NzohLpM4=
+		YPWnHw7Rpxc9dDxEDwTrXgQXp24=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -87,11 +87,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			C8ZmYAYAE+6agqICsE5oThNK9sk=
+			g45IjKao887siWtuv6Nog/p8wSU=
 			</data>
 			<key>hash2</key>
 			<data>
-			aGjxYjyl5+x+3SbtBjIOh/+hWhU8Fr00Ml3vLFCGzK4=
+			4HQNb6kucr1PpdOD2pHKiX5gbvFg30b8VDJYwyY7ZsM=
 			</data>
 		</dict>
 		<key>Headers/KarteXamarin.h</key>
@@ -109,55 +109,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SY9hGsAjTSDG64BQpc3y2e/OR3c=
+			MWps7LGXIOKHkB8vCZXFHh2HVhw=
 			</data>
 			<key>hash2</key>
 			<data>
-			jtv3kutNVfncyXg+u+ceUxto5DGvTTlgAVsdEV42/eg=
+			RWjx2rg/pnwOYclC42oYcJYYRJ8E8K6aHniCXZY3TAY=
 			</data>
 		</dict>
 		<key>Modules/KarteXamarin.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kOkkfxqTZR7nyOTRPW4Ro2uAyiY=
+			PEpuOi/zcTJCC6aNbHWFocrJhnU=
 			</data>
 			<key>hash2</key>
 			<data>
-			90pjv8pl4GO44a0y6Bi0YspSnRyZjK9AmeG1oYKBeds=
+			f7GuqgK0qRsfHV9p/LDMFwt9scXVq05dZgsoA2WI6YY=
 			</data>
 		</dict>
 		<key>Modules/KarteXamarin.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kOkkfxqTZR7nyOTRPW4Ro2uAyiY=
+			PEpuOi/zcTJCC6aNbHWFocrJhnU=
 			</data>
 			<key>hash2</key>
 			<data>
-			90pjv8pl4GO44a0y6Bi0YspSnRyZjK9AmeG1oYKBeds=
+			f7GuqgK0qRsfHV9p/LDMFwt9scXVq05dZgsoA2WI6YY=
 			</data>
 		</dict>
 		<key>Modules/KarteXamarin.swiftmodule/Project/armv7-apple-ios.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SY9hGsAjTSDG64BQpc3y2e/OR3c=
+			MWps7LGXIOKHkB8vCZXFHh2HVhw=
 			</data>
 			<key>hash2</key>
 			<data>
-			jtv3kutNVfncyXg+u+ceUxto5DGvTTlgAVsdEV42/eg=
+			RWjx2rg/pnwOYclC42oYcJYYRJ8E8K6aHniCXZY3TAY=
 			</data>
 		</dict>
 		<key>Modules/KarteXamarin.swiftmodule/Project/armv7.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SY9hGsAjTSDG64BQpc3y2e/OR3c=
+			MWps7LGXIOKHkB8vCZXFHh2HVhw=
 			</data>
 			<key>hash2</key>
 			<data>
-			jtv3kutNVfncyXg+u+ceUxto5DGvTTlgAVsdEV42/eg=
+			RWjx2rg/pnwOYclC42oYcJYYRJ8E8K6aHniCXZY3TAY=
 			</data>
 		</dict>
 		<key>Modules/KarteXamarin.swiftmodule/arm.swiftdoc</key>
@@ -175,11 +175,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ly23MJVWjZckkeLkkn7NzohLpM4=
+			YPWnHw7Rpxc9dDxEDwTrXgQXp24=
 			</data>
 			<key>hash2</key>
 			<data>
-			iGnuo+gPYflGWWBX2M2s2KzK8MhHv2BfrEaEuj2b+8c=
+			eD8dxDQK6LHNVAErTr1zb3rFjJpiTlvz+2AJkRaK20I=
 			</data>
 		</dict>
 		<key>Modules/KarteXamarin.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -197,11 +197,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dlgRAXaBOUK2ZgGWezhZ8Xep68I=
+			KH+QWvGF9FobMrwAVVHJa20UkRE=
 			</data>
 			<key>hash2</key>
 			<data>
-			/rnB1qYQNvZ/LgGaaq84Y5cpjQqYIP/iB+qLSymAciQ=
+			lpSGTv53Uiefi56I1ivmZmHDiZDAW1VNkl0I/rPc5cQ=
 			</data>
 		</dict>
 		<key>Modules/KarteXamarin.swiftmodule/arm64.swiftdoc</key>
@@ -219,11 +219,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dlgRAXaBOUK2ZgGWezhZ8Xep68I=
+			KH+QWvGF9FobMrwAVVHJa20UkRE=
 			</data>
 			<key>hash2</key>
 			<data>
-			/rnB1qYQNvZ/LgGaaq84Y5cpjQqYIP/iB+qLSymAciQ=
+			lpSGTv53Uiefi56I1ivmZmHDiZDAW1VNkl0I/rPc5cQ=
 			</data>
 		</dict>
 		<key>Modules/KarteXamarin.swiftmodule/armv7-apple-ios.swiftdoc</key>
@@ -241,11 +241,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ly23MJVWjZckkeLkkn7NzohLpM4=
+			YPWnHw7Rpxc9dDxEDwTrXgQXp24=
 			</data>
 			<key>hash2</key>
 			<data>
-			iGnuo+gPYflGWWBX2M2s2KzK8MhHv2BfrEaEuj2b+8c=
+			eD8dxDQK6LHNVAErTr1zb3rFjJpiTlvz+2AJkRaK20I=
 			</data>
 		</dict>
 		<key>Modules/KarteXamarin.swiftmodule/armv7.swiftdoc</key>
@@ -263,11 +263,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ly23MJVWjZckkeLkkn7NzohLpM4=
+			YPWnHw7Rpxc9dDxEDwTrXgQXp24=
 			</data>
 			<key>hash2</key>
 			<data>
-			iGnuo+gPYflGWWBX2M2s2KzK8MhHv2BfrEaEuj2b+8c=
+			eD8dxDQK6LHNVAErTr1zb3rFjJpiTlvz+2AJkRaK20I=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

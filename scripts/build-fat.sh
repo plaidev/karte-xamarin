@@ -2,6 +2,8 @@
 
 # Builds a fat library for a given xcode project (framework)
 
+cd `dirname $0`
+
 echo "Define parameters"
 
 IOS_SDK_VER="13.6" # xcodebuild -showsdks

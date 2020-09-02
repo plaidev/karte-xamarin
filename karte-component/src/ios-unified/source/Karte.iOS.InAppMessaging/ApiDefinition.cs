@@ -1,5 +1,4 @@
 ﻿using Foundation;
-using Karte.iOS.InAppMessaging;
 using ObjCRuntime;
 using UIKit;
 using WebKit;

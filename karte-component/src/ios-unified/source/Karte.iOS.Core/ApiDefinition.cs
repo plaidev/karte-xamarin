@@ -15,13 +15,13 @@ namespace Karte.iOS.Core
         [Export("defaultConfiguration", ArgumentSemantic.Strong)]
         KRTConfiguration DefaultConfiguration { get; }
 
-        // @property (readonly, nonatomic) BOOL isDryRun;
+        // @property (nonatomic) BOOL isDryRun;
         [Export("isDryRun")]
-        bool IsDryRun { get; }
+        bool IsDryRun { get; set; }
 
-        // @property (readonly, nonatomic) BOOL isOptOut;
+        // @property (nonatomic) BOOL isOptOut;
         [Export("isOptOut")]
-        bool IsOptOut { get; }
+        bool IsOptOut { get; set; }
 
         [Wrap("WeakIdfaDelegate")]
         [NullAllowed]
