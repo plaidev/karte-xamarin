@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Karte.iOS.Core</id>
-    <version>0.0.6</version>
+    <version>0.0.7</version>
     <authors>Plaid</authors>
     <owners>Plaid</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -16,7 +16,6 @@
     <tags>Karte Plaid</tags>
     <dependencies>
       <dependency id="Xamarin.Swift" version="1.0.4" />
-      <dependency id="Xamarin.iOS.SwiftRuntimeSupport" version="0.2.0" />
     </dependencies>
   </metadata>
   <files>
