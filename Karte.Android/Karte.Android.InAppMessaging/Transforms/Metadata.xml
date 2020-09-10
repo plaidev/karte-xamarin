@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <!--
+  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
+  
+  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
+  -->
+<!--  allow list  -->
+    <remove-node path="/api/package[starts-with(@name, 'io.karte.android.inappmessaging.internal')]" />
+    <remove-node path="//class[not(
+        @name = 'InAppMessaging' or 
+        @name = 'InAppMessagingDelegate'
+    )]" />
+    <!--<remove-node path="//interface" />-->
+<!--  InAppMessaging modify  -->
+    <attr path="//class[@name='InAppMessaging']" name="extends">java.lang.Object</attr>
+    <remove-node path="//class[@name='InAppMessaging']/implements" />
+    <add-node path="//class[@name='InAppMessaging']">
+       <method abstract="false" deprecated="not deprecated" final="true" name="getDelegate" 
+                jni-signature="()Lio/karte/android/inappmessaging/InAppMessagingDelegate;" bridge="false" 
+                native="false" return="io.karte.android.inappmessaging.InAppMessagingDelegate" 
+                jni-return="Lio/karte/android/inappmessaging/InAppMessagingDelegate;" static="true" synchronized="false" synthetic="false" visibility="public" />
+       <method abstract="false" deprecated="not deprecated" final="true" name="setDelegate"
+               jni-signature="(Lio/karte/android/inappmessaging/InAppMessagingDelegate;)V" bridge="false" native="false" return="void" jni-return="V" 
+               static="true" synchronized="false" synthetic="false" visibility="public">
+          <parameter name="value" type="io.karte.android.inappmessaging.InAppMessagingDelegate" jni-type="Lio/karte/android/inappmessaging/InAppMessagingDelegate;"/>
+       </method>
+    </add-node>
+    <remove-node path="//class[@name='InAppMessaging']/method[@static='false']" />
+    <remove-node path="//class[@name='InAppMessaging']/field[@static='false']" />
+<!--  remove kotlin signatures  -->
+    <remove-node path="//field[@name='Companion']" />
+</metadata>

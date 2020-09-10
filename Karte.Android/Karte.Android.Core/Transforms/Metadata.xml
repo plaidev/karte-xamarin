@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <!--
+  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
+  
+  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
+  -->
+<!--  allow list  -->
+    <remove-node path="//class[not(
+        @name = 'KarteApp' or 
+        @name = 'Config' or 
+        @name = 'Config.Builder' or 
+        @name = 'Logger' or 
+        @name = 'LogLevel' or 
+        @name = 'UserSync' or 
+        @name = 'ActivityLifecycleCallback' or 
+        @name = 'TrackRequest' or 
+        @name = 'TrackResponse' or 
+        @name = 'Tracker'
+    )]" />
+    <remove-node path="//interface[not(
+        @name = 'Library' or 
+        @name = 'Module' or 
+        @name = 'ActionModule' or 
+        @name = 'UserModule' or 
+        @name = 'NotificationModule' or 
+        @name = 'DeepLinkModule' or 
+        @name = 'UserModule' or 
+        @name = 'TrackModule' or 
+        @name = 'DTO' or 
+        @name = 'TrackCompletion'
+    )]" />
+<!--  KarteApp modify  -->
+    <attr path="//class[@name='KarteApp']" name="extends">java.lang.Object</attr>
+    <attr path="//class[@name='KarteApp']/method[@name='setup']" name="visibility">protected</attr>
+    <attr path="//class[@name='KarteApp']/method[@name='setup']" name="managedName">SetupInternal</attr>
+    <remove-node path="//class[@name='KarteApp']/method[@static='false']" />
+<!--  Tracker classes modify  -->
+    <attr path="//class[@name='TrackRequest']" name="extends">java.lang.Object</attr>
+    <remove-node path="//class[@name='TrackRequest']/constructor" />
+    <remove-node path="//class[@name='TrackRequest']/method" />
+    <attr path="//class[@name='TrackResponse']" name="extends">java.lang.Object</attr>
+    <remove-node path="//interface[@name='DeepLinkModule']/method" />
+    <remove-node path="//method[parameter[@type='io.karte.android.tracking.Event']]" />
+    <remove-node path="//method[parameter[@type='io.karte.android.tracking.TrackerDelegate']]" />
+<!--  remove kotlin signatures  -->
+    <remove-node path="//field[@name='Companion']" />
+    <remove-node path="//method[starts-with(@name, 'component')]" />
+</metadata>

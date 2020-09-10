@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <!--
+  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
+  
+  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
+  -->
+<!--  allow list  -->
+    <remove-node path="/api/package[starts-with(@name, 'io.karte.android.notifications.internal')]" />
+    <remove-node path="//class[not(
+        @name = 'KarteAttributes' or 
+        @name = 'MessageHandler' or 
+        @name = 'Notifications'
+    )]" />
+    <!--<remove-node path="//interface" />-->
+<!--  Notifications modify  -->
+    <attr path="//class[@name='Notifications']" name="extends">java.lang.Object</attr>
+    <remove-node path="//class[@name='Notifications']/implements" />
+    <remove-node path="//class[@name='Notifications']/method[@static='false']" />
+    <remove-node path="//class[@name='Notifications']/field[@static='false']" />
+<!--  interface remove  -->
+    <remove-node path="//class[@name='KarteAttributes']/implements" />
+<!--  remove kotlin signatures  -->
+    <remove-node path="//field[@name='Companion']" />
+    <remove-node path="//method[starts-with(@name, 'component')]" />
+</metadata>

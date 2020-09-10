@@ -1,127 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{445127D4-5883-4D2A-ACB1-A1379EA7A5DD}</ProjectGuid>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7BE38EA5-2698-42D1-BC6F-C3EE6C937261}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{122416d6-6b49-4ee2-a1e8-b825f31c79fe}</TemplateGuid>
     <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SampleApp.Droid</RootNamespace>
     <AssemblyName>SampleApp.Droid</AssemblyName>
-    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>True</Deterministic>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
+    <AndroidUseAapt2>true</AndroidUseAapt2>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <JavaMaximumHeapSize></JavaMaximumHeapSize>
-    <AndroidUseAapt2>false</AndroidUseAapt2>
-    <AndroidManifest></AndroidManifest>
-    <AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86</AndroidSupportedAbis>
+    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
-    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-    <JavaMaximumHeapSize></JavaMaximumHeapSize>
-    <AndroidUseAapt2>false</AndroidUseAapt2>
-    <AndroidManifest></AndroidManifest>
-    <AndroidSupportedAbis>armeabi-v7a</AndroidSupportedAbis>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
-    <Reference Include="Xamarin.Jetbrains.Annotations">
-      <HintPath>..\..\packages\Xamarin.Jetbrains.Annotations.13.0.0.1\lib\monoandroid90\Xamarin.Jetbrains.Annotations.dll</HintPath>
-    </Reference>
-    <Reference Include="Java.Interop" />
-    <Reference Include="Xamarin.Kotlin.StdLib.Common">
-      <HintPath>..\..\packages\Xamarin.Kotlin.StdLib.Common.1.3.50.1\lib\monoandroid90\Xamarin.Kotlin.StdLib.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Kotlin.StdLib">
-      <HintPath>..\..\packages\Xamarin.Kotlin.StdLib.1.3.50.1\lib\monoandroid90\Xamarin.Kotlin.StdLib.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleApp.cs" />
+    <Compile Include="SampleInAppMessagingDelegate.cs" />
+    <Compile Include="MyFirebaseMessagingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml">
-      <SubType></SubType>
-      <Generator></Generator>
+    <AndroidResource Include="Resources\layout\activity_main.xml">
+      <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\values\Strings.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\mipmap-hdpi\Icon.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\mipmap-mdpi\Icon.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Icon.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\values\ic_launcher_background.xml" />
+    <AndroidResource Include="Resources\values\strings.xml" />
+    <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher_round.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="SampleApp">
-      <Project>{AB2C419D-1B6E-4733-AAC5-83BDBD86BCBC}</Project>
-      <Name>SampleApp</Name>
+    <Folder Include="Resources\drawable\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Xamarin.AndroidX.Activity">
+      <Version>1.1.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
+      <Version>2.2.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.Core.UI">
+      <Version>1.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Browser">
+      <Version>1.2.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.AppCompat">
+      <Version>1.2.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.Messaging">
+      <Version>71.1740.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4">
+      <Version>1.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Kotlin.StdLib">
+      <Version>1.3.72</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.ConstraintLayout">
+      <Version>1.1.3.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.GooglePlayServices.Base">
+      <Version>71.1610.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk7">
+      <Version>1.3.72</Version>
+    </PackageReference>
+</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Karte.Android\Karte.Android.Core\Karte.Android.Core.csproj">
+      <Project>{244E68D5-E90F-465C-9A86-C8B221D5A21C}</Project>
+      <Name>Karte.Android.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Karte.Android\Karte.Core.Android\Karte.Core.Android.csproj">
-      <Project>{581F4D7C-79E4-421C-AEC1-BADDEA62A2C3}</Project>
-      <Name>Karte.Core.Android</Name>
+    <ProjectReference Include="..\..\Karte.Android\Karte.Android.InAppMessaging\Karte.Android.InAppMessaging.csproj">
+      <Project>{3EED244D-8177-4972-8618-589EFAE50AD2}</Project>
+      <Name>Karte.Android.InAppMessaging</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Karte.Android\Karte.InAppMessaging.Android\Karte.InAppMessaging.Android.csproj">
-      <Project>{3C53A554-2286-4682-A88B-9B32207455B4}</Project>
-      <Name>Karte.InAppMessaging.Android</Name>
+    <ProjectReference Include="..\..\Karte.Android\Karte.Android.Variables\Karte.Android.Variables.csproj">
+      <Project>{BE9CD8F7-FC8C-468C-B27F-F44B06AF0AEA}</Project>
+      <Name>Karte.Android.Variables</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Karte.Android\Karte.Variables.Android\Karte.Variables.Android.csproj">
-      <Project>{02FDF2D8-75B2-497D-9B58-2CD7359CBBFD}</Project>
-      <Name>Karte.Variables.Android</Name>
+    <ProjectReference Include="..\..\Karte.Android\Karte.Android.Notifications\Karte.Android.Notifications.csproj">
+      <Project>{7422FCC8-F089-4828-A90B-013E2B754F27}</Project>
+      <Name>Karte.Android.Notifications</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <GoogleServicesJson Include="google-services.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
-  <Import Project="..\..\packages\Xamarin.Jetbrains.Annotations.13.0.0.1\build\monoandroid90\Xamarin.Jetbrains.Annotations.targets" Condition="Exists('..\..\packages\Xamarin.Jetbrains.Annotations.13.0.0.1\build\monoandroid90\Xamarin.Jetbrains.Annotations.targets')" />
-  <Import Project="..\..\packages\Xamarin.Kotlin.StdLib.Common.1.3.50.1\build\monoandroid90\Xamarin.Kotlin.StdLib.Common.targets" Condition="Exists('..\..\packages\Xamarin.Kotlin.StdLib.Common.1.3.50.1\build\monoandroid90\Xamarin.Kotlin.StdLib.Common.targets')" />
-  <Import Project="..\..\packages\Xamarin.Kotlin.StdLib.1.3.50.1\build\monoandroid90\Xamarin.Kotlin.StdLib.targets" Condition="Exists('..\..\packages\Xamarin.Kotlin.StdLib.1.3.50.1\build\monoandroid90\Xamarin.Kotlin.StdLib.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+    Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+  -->
 </Project>
