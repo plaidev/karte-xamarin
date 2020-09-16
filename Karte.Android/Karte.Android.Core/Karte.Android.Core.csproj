@@ -47,6 +47,7 @@
     <Compile Include="Additions\KarteApp.cs" />
     <Compile Include="Additions\Config.cs" />
     <Compile Include="Additions\Tracker.cs" />
+    <Compile Include="Additions\XamarinLibrary.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Jars\AboutJars.txt" />

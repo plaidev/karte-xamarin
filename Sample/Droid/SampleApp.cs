@@ -7,7 +7,6 @@ using Firebase.Iid;
 using IO.Karte.Android;
 using IO.Karte.Android.Core.Config;
 using IO.Karte.Android.Core.Logger;
-using IO.Karte.Android.Variables;
 
 namespace SampleApp.Droid
 {
@@ -24,16 +23,11 @@ namespace SampleApp.Droid
         public override void OnCreate()
         {
             base.OnCreate();
-            KarteApp.SetLogLevel(LogLevel.Debug);
+            KarteApp.SetLogLevel(LogLevel.Verbose);
             Logger.D("KarteSampleApp", "logging test.");
-            KarteApp.PrintAssemblies();
-            Config config = new Config.Builder().InvokeIsDryRun(true).Build();
-            KarteApp.Setup(this, AppKey);
-            KarteApp.Register("io/karte/android/inappmessaging/InAppMessaging");
-            KarteApp.Register("io/karte/android/variables/internal/VariablesService");
-            KarteApp.Register("io/karte/android/notifications/Notifications");
-            Variables.Fetch();
-
+            Config config = new Config.Builder().InvokeEnabledTrackingAaid(true).Build();
+            Logger.D("KarteSampleApp", $"config: {config}.");
+            KarteApp.Setup(this, AppKey, config);
 
             IsPlayServicesAvailable();
             System.Diagnostics.Debug.WriteLine("InstanceID token: " + FirebaseInstanceId.Instance.Token);
