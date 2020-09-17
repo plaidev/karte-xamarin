@@ -3,21 +3,24 @@ using System;
 using System.Collections.Generic;
 
 using Android.App;
+using Android.Content;
+using Android.Graphics;
 using Android.OS;
+using Android.Webkit;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+using Org.Json;
+
 using IO.Karte.Android;
+using IO.Karte.Android.Core.Usersync;
 using IO.Karte.Android.Inappmessaging;
 using IO.Karte.Android.Tracking;
-using Org.Json;
 using IO.Karte.Android.Variables;
-using IO.Karte.Android.Core.Usersync;
-using Android.Webkit;
-using Android.Graphics;
 
 namespace SampleApp.Droid
 {
     [Activity(Label = "MainActivity", MainLauncher = true)]
+    [IntentFilter(new string[] {Intent.ActionView}, DataScheme = "krt-YOUR_APP_KEY")]
     public partial class MainActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

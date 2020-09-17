@@ -15,6 +15,7 @@ using Android.App;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
+[assembly: MetaData("io.karte.android.Tracker.notification_icon", Resource = "@mipmap/ic_launcher")]
 
 // Version information for an assembly consists of the following four values:
 //
