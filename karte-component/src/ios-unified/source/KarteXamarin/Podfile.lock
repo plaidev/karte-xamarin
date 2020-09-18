@@ -1,0 +1,20 @@
+PODS:
+  - KarteCore (2.8.0):
+    - KarteUtilities (~> 3.1)
+  - KarteUtilities (3.1.0)
+
+DEPENDENCIES:
+  - KarteCore (= 2.8.0)
+
+SPEC REPOS:
+  trunk:
+    - KarteCore
+    - KarteUtilities
+
+SPEC CHECKSUMS:
+  KarteCore: b171d3bbc33c6c19b9a071a4c714f7d2bd91a988
+  KarteUtilities: ccc63f2916deb45485d1b2b63516a98b5ecba773
+
+PODFILE CHECKSUM: 491d4f56bba6a70557daf9676bc23ecadc260236
+
+COCOAPODS: 1.9.1

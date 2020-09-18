@@ -1,0 +1,11 @@
+framework module KarteXamarin {
+  umbrella header "KarteXamarin.h"
+
+  export *
+  module * { export * }
+}
+
+module KarteXamarin.Swift {
+    header "KarteXamarin-Swift.h"
+    requires objc
+}
