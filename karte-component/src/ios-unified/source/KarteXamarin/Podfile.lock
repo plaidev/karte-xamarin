@@ -1,20 +1,22 @@
 PODS:
-  - KarteCore (2.8.0):
-    - KarteUtilities (~> 3.1)
-  - KarteUtilities (3.1.0)
+  - KarteCore (2.13.0):
+    - KarteUtilities (~> 3.3)
+  - KarteUtilities (3.3.0):
+    - KarteUtilities/standard (= 3.3.0)
+  - KarteUtilities/standard (3.3.0)
 
 DEPENDENCIES:
-  - KarteCore (= 2.8.0)
+  - KarteCore (= 2.13.0)
 
 SPEC REPOS:
-  trunk:
+  https://cdn.cocoapods.org/:
     - KarteCore
     - KarteUtilities
 
 SPEC CHECKSUMS:
-  KarteCore: b171d3bbc33c6c19b9a071a4c714f7d2bd91a988
-  KarteUtilities: ccc63f2916deb45485d1b2b63516a98b5ecba773
+  KarteCore: 3ececcbaeb25812137fb60d9ff02787c2ad63831
+  KarteUtilities: 87d79d20649710937f9bfd4961d369bf77105152
 
-PODFILE CHECKSUM: 491d4f56bba6a70557daf9676bc23ecadc260236
+PODFILE CHECKSUM: a472a4b1c162bd6f6880ce56b24b2a287cdc1cc6
 
 COCOAPODS: 1.9.1
