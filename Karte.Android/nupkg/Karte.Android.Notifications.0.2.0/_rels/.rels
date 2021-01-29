@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Type="http://schemas.microsoft.com/packaging/2010/07/manifest" Target="/Karte.Android.Notifications.nuspec" Id="R80E79A67DB2B53B8" />
+  <Relationship Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="/package/services/metadata/core-properties/a4da59be206c44e9a9d0f70aa1aeacc5.psmdcp" Id="R3FAC79B1050E8684" />
+</Relationships>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Karte.Android.InAppMessaging</id>
+    <version>0.2.0</version>
+    <authors>PLAID</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">Apache-2.0</license>
+    <licenseUrl>https://licenses.nuget.org/Apache-2.0</licenseUrl>
+    <icon>icon.png</icon>
+    <projectUrl>https://github.com/plaidev/karte-xamarin</projectUrl>
+    <description>KARTE Xamarin Android Binding: InAppMessaging module.</description>
+    <copyright>Copyright PLAID, Inc.</copyright>
+    <tags>Karte Plaid</tags>
+    <dependencies>
+      <group targetFramework="MonoAndroid9.0">
+        <dependency id="Karte.Android.Core" version="0.2.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Java.Interop" targetFramework="MonoAndroid9.0" />
+      <frameworkAssembly assemblyName="Mono.Android" targetFramework="MonoAndroid9.0" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="MonoAndroid9.0" />
+      <frameworkAssembly assemblyName="System" targetFramework="MonoAndroid9.0" />
+      <frameworkAssembly assemblyName="System.Xml" targetFramework="MonoAndroid9.0" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

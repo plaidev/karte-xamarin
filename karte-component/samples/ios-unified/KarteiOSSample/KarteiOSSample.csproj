@@ -40,6 +40,7 @@
         <MtouchLink>SdkOnly</MtouchLink>
         <MtouchArch>i386, x86_64</MtouchArch>
         <LangVersion>latest</LangVersion>
+        <MtouchSdkVersion>14.3</MtouchSdkVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
         <DebugSymbols>true</DebugSymbols>
@@ -55,6 +56,7 @@
         <MtouchDebug>true</MtouchDebug>
         <LangVersion>latest</LangVersion>
         <CodesignProvision>match Development io.karte.sample</CodesignProvision>
+        <MtouchLink>SdkOnly</MtouchLink>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
         <DebugType>none</DebugType>
@@ -67,7 +69,8 @@
         <CodesignKey>Apple Development: Team App (B7R96HDFF3)</CodesignKey>
         <LangVersion>latest</LangVersion>
         <MtouchLink>SdkOnly</MtouchLink>
-        <CodesignProvision>iOS Team Provisioning Profile: *</CodesignProvision>
+        <CodesignProvision>iOS Team Provisioning Profile: io.karte.sample</CodesignProvision>
+        <MtouchSdkVersion>14.3</MtouchSdkVersion>
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="System" />
@@ -76,6 +79,18 @@
         <Reference Include="Xamarin.iOS" />
         <Reference Include="System.Numerics" />
         <Reference Include="System.Numerics.Vectors" />
+        <Reference Include="Karte.iOS.Notification">
+          <HintPath>..\..\..\nuget\build\Karte.iOS.Notification.0.2.0\lib\Xamarin.iOS10\Karte.iOS.Notification.dll</HintPath>
+        </Reference>
+        <Reference Include="Karte.iOS.Variables">
+          <HintPath>..\..\..\nuget\build\Karte.iOS.Variables.0.2.0\lib\Xamarin.iOS10\Karte.iOS.Variables.dll</HintPath>
+        </Reference>
+        <Reference Include="Karte.iOS.InAppMessaging">
+          <HintPath>..\..\..\nuget\build\Karte.iOS.InAppMessaging.0.2.0\lib\Xamarin.iOS10\Karte.iOS.InAppMessaging.dll</HintPath>
+        </Reference>
+        <Reference Include="Karte.iOS.Core">
+          <HintPath>..\..\..\nuget\build\Karte.iOS.Core.0.2.0\lib\Xamarin.iOS10\Karte.iOS.Core.dll</HintPath>
+        </Reference>
     </ItemGroup>
     <ItemGroup>
         <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -156,24 +171,6 @@
       <PackageReference Include="Xamarin.Swift">
         <Version>1.0.5</Version>
       </PackageReference>
-    </ItemGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\..\..\src\ios-unified\source\Karte.iOS.Variables\Karte.iOS.Variables.csproj">
-        <Project>{64437FD8-F87B-402D-A542-010C1D604AC4}</Project>
-        <Name>Karte.iOS.Variables</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\..\..\src\ios-unified\source\Karte.iOS.Core\Karte.iOS.Core.csproj">
-        <Project>{DFD7F26B-FE72-4F5D-876C-13166A876E9B}</Project>
-        <Name>Karte.iOS.Core</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\..\..\src\ios-unified\source\Karte.iOS.InAppMessaging\Karte.iOS.InAppMessaging.csproj">
-        <Project>{639F0B73-C0AB-4DD5-802C-134226D8BABA}</Project>
-        <Name>Karte.iOS.InAppMessaging</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\..\..\src\ios-unified\source\Karte.iOS.Notification\Karte.iOS.Notification.csproj">
-        <Project>{F9414AEA-3B6A-461A-ADCE-0D64C95FD7DD}</Project>
-        <Name>Karte.iOS.Notification</Name>
-      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

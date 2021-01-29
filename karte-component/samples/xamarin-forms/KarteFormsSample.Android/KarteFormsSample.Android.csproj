@@ -87,7 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KarteFormsSample\KarteFormsSample.csproj">
-      <Project>{505EEC0A-1A60-42B2-B060-438220301CED}</Project>
+      <Project>{E891C8AE-086E-4EBA-BA83-E837E8EB4582}</Project>
       <Name>KarteFormsSample</Name>
     </ProjectReference>
   </ItemGroup>
