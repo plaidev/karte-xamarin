@@ -6,7 +6,7 @@ cd `dirname $0`
 
 echo "Define parameters"
 
-IOS_SDK_VER="13.7" # xcodebuild -showsdks
+IOS_SDK_VER="14.3" # xcodebuild -showsdks
 SRC_PROJ_NAME="KarteTracker"
 SRC_PATH="../../karte-ios-tools/Example/$SRC_PROJ_NAME.xcworkspace"
 KARTE_XM_PATH="../karte-component/src/ios-unified/source/KarteXamarin/KarteXamarin.xcworkspace"
@@ -20,24 +20,24 @@ echo "Build KarteXamarin framework for simulator and device"
 rm -Rf "$BUILD_PATH"
 
 xcodebuild -scheme KarteXamarin -sdk iphoneos$IOS_SDK_VER -workspace "$KARTE_XM_PATH" -configuration Release $BUILD_SETTINGS_KARTE_XM -derivedDataPath $BUILD_PATH
-xcodebuild -scheme KarteXamarin -sdk iphonesimulator$IOS_SDK_VER -workspace "$KARTE_XM_PATH" -configuration Release $BUILD_SETTINGS_KARTE_XM -derivedDataPath $BUILD_PATH
+xcodebuild -scheme KarteXamarin -sdk iphonesimulator$IOS_SDK_VER -workspace "$KARTE_XM_PATH" -configuration Release $BUILD_SETTINGS_KARTE_XM -derivedDataPath $BUILD_PATH EXCLUDED_ARCHS="arm64"
 
 echo "Build Other iOS framework for simulator and device"
 
 xcodebuild -scheme KarteCore -sdk iphoneos$IOS_SDK_VER -workspace "$SRC_PATH" -configuration Release $BUILD_SETTINGS -derivedDataPath $BUILD_PATH
-xcodebuild -scheme KarteCore -sdk iphonesimulator$IOS_SDK_VER -workspace "$SRC_PATH" -configuration Release $BUILD_SETTINGS -derivedDataPath $BUILD_PATH
+xcodebuild -scheme KarteCore -sdk iphonesimulator$IOS_SDK_VER -workspace "$SRC_PATH" -configuration Release $BUILD_SETTINGS -derivedDataPath $BUILD_PATH EXCLUDED_ARCHS="arm64"
 
 xcodebuild -scheme KarteUtilities -sdk iphoneos$IOS_SDK_VER -workspace "$SRC_PATH" -configuration Release $BUILD_SETTINGS -derivedDataPath $BUILD_PATH
-xcodebuild -scheme KarteUtilities -sdk iphonesimulator$IOS_SDK_VER -workspace "$SRC_PATH" -configuration Release $BUILD_SETTINGS -derivedDataPath $BUILD_PATH
+xcodebuild -scheme KarteUtilities -sdk iphonesimulator$IOS_SDK_VER -workspace "$SRC_PATH" -configuration Release $BUILD_SETTINGS -derivedDataPath $BUILD_PATH EXCLUDED_ARCHS="arm64"
 
 xcodebuild -scheme KarteInAppMessaging -sdk iphoneos$IOS_SDK_VER -workspace "$SRC_PATH" -configuration Release $BUILD_SETTINGS -derivedDataPath $BUILD_PATH
-xcodebuild -scheme KarteInAppMessaging -sdk iphonesimulator$IOS_SDK_VER -workspace "$SRC_PATH" -configuration Release $BUILD_SETTINGS -derivedDataPath $BUILD_PATH
+xcodebuild -scheme KarteInAppMessaging -sdk iphonesimulator$IOS_SDK_VER -workspace "$SRC_PATH" -configuration Release $BUILD_SETTINGS -derivedDataPath $BUILD_PATH EXCLUDED_ARCHS="arm64"
 
 xcodebuild -scheme KarteVariables -sdk iphoneos$IOS_SDK_VER -workspace "$SRC_PATH" -configuration Release $BUILD_SETTINGS -derivedDataPath $BUILD_PATH
-xcodebuild -scheme KarteVariables -sdk iphonesimulator$IOS_SDK_VER -workspace "$SRC_PATH" -configuration Release $BUILD_SETTINGS -derivedDataPath $BUILD_PATH
+xcodebuild -scheme KarteVariables -sdk iphonesimulator$IOS_SDK_VER -workspace "$SRC_PATH" -configuration Release $BUILD_SETTINGS -derivedDataPath $BUILD_PATH EXCLUDED_ARCHS="arm64"
 
 xcodebuild -scheme KarteRemoteNotification -sdk iphoneos$IOS_SDK_VER -workspace "$SRC_PATH" -configuration Release $BUILD_SETTINGS -derivedDataPath $BUILD_PATH
-xcodebuild -scheme KarteRemoteNotification -sdk iphonesimulator$IOS_SDK_VER -workspace "$SRC_PATH" -configuration Release $BUILD_SETTINGS -derivedDataPath $BUILD_PATH
+xcodebuild -scheme KarteRemoteNotification -sdk iphonesimulator$IOS_SDK_VER -workspace "$SRC_PATH" -configuration Release $BUILD_SETTINGS -derivedDataPath $BUILD_PATH EXCLUDED_ARCHS="arm64"
 
 echo "Create fat binaries for Release-iphoneos and Release-iphonesimulator configuration"
 echo "Copy one build as a fat framework"
