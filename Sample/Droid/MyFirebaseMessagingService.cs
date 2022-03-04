@@ -6,7 +6,7 @@ using IO.Karte.Android.Notifications;
 
 namespace SampleApp.Droid
 {
-    [Service(Label = "MyFirebaseMessagingService")]
+    [Service(Label = "MyFirebaseMessagingService", Exported = true)]
     [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
     public class MyFirebaseMessagingService : FirebaseMessagingService
     {
