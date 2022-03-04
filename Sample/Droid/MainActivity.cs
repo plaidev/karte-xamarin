@@ -55,7 +55,7 @@ namespace SampleApp.Droid
         {
             SetButtonsDelegate(Resource.Id.buttonIdentify, (button) =>
             {
-                Tracker.Identify(new Dictionary<string, object>() {
+                Tracker.Identify("test-user", new Dictionary<string, object>() {
                     {"name", "sample-name"}
                 });
             });
