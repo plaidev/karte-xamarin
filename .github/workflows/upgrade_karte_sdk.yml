@@ -1,0 +1,61 @@
+name: "Update Embedded KARTE SDK"
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    permissions:
+      contents: write
+      id-token: write
+      pull-requests: write
+    steps:
+      - name: Set up ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+      - name: Checkout master
+        uses: actions/checkout@v3
+        with:
+          ref: feature/auto_upgrade_embdded_libraries
+      - name: Checkout karte-ios-sdk
+        uses: actions/checkout@v3
+        with:
+          repository: plaidev/karte-ios-sdk
+          ref: master
+          path: karte-ios-sdk
+      - name: Configure Git
+        run: |
+          git config user.email "git@users.noreply.github.com"
+          git config user.name "github actions"
+      - name: Downlaod Jars
+        run: ruby scripts/ci/update_android_dependencies.rb
+      - name: Update KarteXamarin Podfile
+        run: ruby scripts/ci/update_karte_xamarin_podfile.rb
+      - name: pod install
+        run: |
+          cd karte-component/src/ios-unified/source/KarteXamarin
+          pod install
+          cd -
+      - name: Select Xcode version
+        run: sudo xcode-select -s '/Applications/Xcode_12.4.app'
+      - name: Create fat binaries
+        run: |
+          bash ./scripts/ci/build-fat.sh
+      - name: Update versions
+        run: ruby scripts/ci/update_versions.rb
+      - name: Clean up
+        run: rm -rf karte-ios-sdk
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: '[WIP] Update KARTE SDK'
+          branch: chore/update_karte_sdk
+          commit-message: 'Update KARTE SDK'
