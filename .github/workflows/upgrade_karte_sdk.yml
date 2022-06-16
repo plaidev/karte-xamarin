@@ -19,40 +19,43 @@ jobs:
       #  uses: styfle/cancel-workflow-action@0.9.1
       #  with:
       #    access_token: ${{ secrets.GH_ACCESS_TOKEN }}
-      - name: Checkout master
-        uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
         with:
-          ref: feature/auto_upgrade_embdded_libraries
-      - name: Checkout karte-ios-sdk
-        uses: actions/checkout@v3
-        with:
-          repository: plaidev/karte-ios-sdk
-          ref: master
-          path: karte-ios-sdk
-          #token: ${{ secrets.GH_ACCESS_TOKEN }}
-      - name: Configure Git
-        run: |
-          git config user.email "git@users.noreply.github.com"
-          git config user.name "github actions"
-          #- uses: actions/cache@v2
+          java-version: '11'
+          distribution: 'adopt'
+          cache: maven
+      - name: Downlaod Jars
+        run: mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=io.karte.android:core:2.18.0:jar
+      - name: Show downloaded files
+        run: ls
+          #- name: Checkout master
+          #  uses: actions/checkout@v3
           #  with:
-          #    path: vendor/bundle
-          #    key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          #    restore-keys: |
-          #      ${{ runner.os }}-gems-
-          #
-      - name: Install Dependencies
-        run: |
-          cd karte-component/src/ios-unified/source/KarteXamarin
-          pod install
-          cd -
-      - name: Select Xcode version
-        run: sudo xcode-select -s '/Applications/Xcode_12.4.app'
-      - name: Create fat binaries
-        run: |
-          bash ./scripts/ci/build-fat.sh
-          #      - name: Create a branch
-          #        run: |
-          #          git add ./karte-component
-          #          git commit -m "Upgrade Karte SDK"
-          #          git push
+          #    ref: feature/auto_upgrade_embdded_libraries
+          #- name: Checkout karte-ios-sdk
+          #  uses: actions/checkout@v3
+          #  with:
+          #    repository: plaidev/karte-ios-sdk
+          #    ref: master
+          #    path: karte-ios-sdk
+          #- name: Configure Git
+          #  run: |
+          #    git config user.email "git@users.noreply.github.com"
+          #    git config user.name "github actions"
+          #- name: Install Dependencies
+          #  run: |
+          #    cd karte-component/src/ios-unified/source/KarteXamarin
+          #    pod install
+          #    cd -
+          #- name: Select Xcode version
+          #  run: sudo xcode-select -s '/Applications/Xcode_12.4.app'
+          #- name: Create fat binaries
+          #  run: |
+          #    bash ./scripts/ci/build-fat.sh
+          #    #      - name: Create a branch
+          #    #        run: |
+          #    #          git add ./karte-component
+          #    #          git commit -m "Upgrade Karte SDK"
+          #    #          git push
+          #    #
