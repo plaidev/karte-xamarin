@@ -1,4 +1,4 @@
-name: "Upgrade Embedded KARTE SDK"
+name: "Update Embedded KARTE SDK"
 on:
   push:
     branches:
@@ -19,6 +19,11 @@ jobs:
       #  uses: styfle/cancel-workflow-action@0.9.1
       #  with:
       #    access_token: ${{ secrets.GH_ACCESS_TOKEN }}
+      #
+      - name: Set up ruby 
+        uses: actions/setup-ruby@v1
+        with: 
+          ruby-version: '3.1'
       - name: Checkout master
         uses: actions/checkout@v3
         with:
@@ -29,19 +34,17 @@ jobs:
           repository: plaidev/karte-ios-sdk
           ref: master
           path: karte-ios-sdk
-          #token: ${{ secrets.GH_ACCESS_TOKEN }}
       - name: Configure Git
         run: |
           git config user.email "git@users.noreply.github.com"
           git config user.name "github actions"
-          #- uses: actions/cache@v2
-          #  with:
-          #    path: vendor/bundle
-          #    key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          #    restore-keys: |
-          #      ${{ runner.os }}-gems-
-          #
-      - name: Install Dependencies
+      - name: Downlaod Jars
+        run: ruby scripts/ci/update_android_dependencies.rb
+      - name: git status
+        run: |
+          git status
+          git diff
+      - name: pod install
         run: |
           cd karte-component/src/ios-unified/source/KarteXamarin
           pod install
@@ -51,8 +54,9 @@ jobs:
       - name: Create fat binaries
         run: |
           bash ./scripts/ci/build-fat.sh
-          #      - name: Create a branch
-          #        run: |
-          #          git add ./karte-component
-          #          git commit -m "Upgrade Karte SDK"
-          #          git push
+      - name: git commit & push
+        run: |
+          git checkout -b chore/update_karte_sdk
+          git add .
+          git commit -m "Update Karte SDK"
+          git push origin chore/update_karte_sdk
