@@ -9,7 +9,7 @@ DEPENDENCIES:
   - KarteCore (= 2.13.0)
 
 SPEC REPOS:
-  https://cdn.cocoapods.org/:
+  trunk:
     - KarteCore
     - KarteUtilities
 
@@ -19,4 +19,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: a472a4b1c162bd6f6880ce56b24b2a287cdc1cc6
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.11.3
