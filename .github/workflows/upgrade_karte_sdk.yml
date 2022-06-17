@@ -1,4 +1,4 @@
-name: "Upgrade Embedded KARTE SDK"
+name: "Update Embedded KARTE SDK"
 on:
   push:
     branches:
@@ -44,19 +44,19 @@ jobs:
         run: |
           git status
           git diff
-          #- name: Install Dependencies
-          #  run: |
-          #    cd karte-component/src/ios-unified/source/KarteXamarin
-          #    pod install
-          #    cd -
-          #- name: Select Xcode version
-          #  run: sudo xcode-select -s '/Applications/Xcode_12.4.app'
-          #- name: Create fat binaries
-          #  run: |
-          #    bash ./scripts/ci/build-fat.sh
-          #    #      - name: Create a branch
-          #    #        run: |
-          #    #          git add ./karte-component
-          #    #          git commit -m "Upgrade Karte SDK"
-          #    #          git push
-          #    #
+      - name: pod install
+        run: |
+          cd karte-component/src/ios-unified/source/KarteXamarin
+          pod install
+          cd -
+      - name: Select Xcode version
+        run: sudo xcode-select -s '/Applications/Xcode_12.4.app'
+      - name: Create fat binaries
+        run: |
+          bash ./scripts/ci/build-fat.sh
+      - name: git commit & push
+        run: |
+          git checkout -b chore/update_karte_sdk
+          git add ./karte-component
+          git commit -m "Update Karte SDK"
+          git push origin chore/update_karte_sdk
