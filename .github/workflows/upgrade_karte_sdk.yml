@@ -24,26 +24,27 @@ jobs:
         uses: actions/setup-ruby@v1
         with: 
           ruby-version: '3.1'
-      - name: Downlaod Jars
-        run: ruby scripts/ci/update_android_dependencies.rb
-      - name: git status
-        run: |
-          git status
-          git diff
-          #- name: Checkout master
-          #  uses: actions/checkout@v3
-          #  with:
-          #    ref: feature/auto_upgrade_embdded_libraries
-          #- name: Checkout karte-ios-sdk
-          #  uses: actions/checkout@v3
-          #  with:
-          #    repository: plaidev/karte-ios-sdk
-          #    ref: master
-          #    path: karte-ios-sdk
-          #- name: Configure Git
-          #  run: |
-          #    git config user.email "git@users.noreply.github.com"
-          #    git config user.name "github actions"
+       - name: Checkout master
+         uses: actions/checkout@v3
+         with:
+           ref: feature/auto_upgrade_embdded_libraries
+       - name: Checkout karte-ios-sdk
+         uses: actions/checkout@v3
+         with:
+           repository: plaidev/karte-ios-sdk
+           ref: master
+           path: karte-ios-sdk
+       - name: Configure Git
+         run: |
+           git config user.email "git@users.noreply.github.com"
+           git config user.name "github actions"
+       - name: Downlaod Jars
+         run: ruby scripts/ci/update_android_dependencies.rb
+       - name: git status
+         run: |
+           git status
+           git diff
+
           #- name: Install Dependencies
           #  run: |
           #    cd karte-component/src/ios-unified/source/KarteXamarin
