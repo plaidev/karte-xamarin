@@ -20,9 +20,9 @@ jobs:
       #  with:
       #    access_token: ${{ secrets.GH_ACCESS_TOKEN }}
       #
-      - name: Set up ruby 
+      - name: Set up ruby
         uses: actions/setup-ruby@v1
-        with: 
+        with:
           ruby-version: '3.1'
       - name: Checkout master
         uses: actions/checkout@v3
@@ -40,10 +40,8 @@ jobs:
           git config user.name "github actions"
       - name: Downlaod Jars
         run: ruby scripts/ci/update_android_dependencies.rb
-      - name: git status
-        run: |
-          git status
-          git diff
+      - name: Update KarteXamarin Podfile
+        run: ruby scripts/ci/update_karte_xamarin_podfile.rb
       - name: pod install
         run: |
           cd karte-component/src/ios-unified/source/KarteXamarin
@@ -54,9 +52,15 @@ jobs:
       - name: Create fat binaries
         run: |
           bash ./scripts/ci/build-fat.sh
-      - name: git commit & push
+      - name: Update versions
+        run: ruby scripts/ci/update_versions.rb
+      - name: git status
         run: |
-          git checkout -b chore/update_karte_sdk
-          git add .
-          git commit -m "Update Karte SDK"
-          git push origin chore/update_karte_sdk
+          git status
+          git diff
+      #- name: git commit & push
+      #  run: |
+      #    git checkout -b chore/update_karte_sdk
+      #    git add .
+      #    git commit -m "Update Karte SDK"
+      #    git push origin chore/update_karte_sdk
