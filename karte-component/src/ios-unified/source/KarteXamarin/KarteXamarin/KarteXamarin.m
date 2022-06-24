@@ -17,5 +17,5 @@
 #import <Foundation/Foundation.h>
 
 NSString * KRTXamarinCurrentLibraryVersion(void) {
-    return @"0.2.0";
+    return @"2.19.0";
 }
