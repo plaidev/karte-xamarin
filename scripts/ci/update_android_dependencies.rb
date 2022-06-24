@@ -3,7 +3,7 @@ require 'open-uri'
 require 'json'
 require 'rexml/document'
 
-require './utils'
+require_relative './utils'
 
 script_dir_path = File.dirname($0)
 tmp_dir_path = '../../tmp'
