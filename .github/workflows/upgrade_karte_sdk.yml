@@ -65,6 +65,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           title: '[WIP] Update KARTE SDK'
           branch: chore/update_karte_sdk
           commit-message: 'Update KARTE SDK'
