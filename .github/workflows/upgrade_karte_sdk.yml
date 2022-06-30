@@ -56,9 +56,15 @@ jobs:
         run: ruby scripts/ci/update_versions.rb
       - name: Clean up
         run: rm -rf karte-ios-sdk
-      - name: git commit & push
-        run: |
-          git checkout -b chore/update_karte_sdk
-          git add .
-          git commit -m "Update Karte SDK"
-          git push origin chore/update_karte_sdk
+      #- name: git commit & push
+      #  run: |
+      #    git checkout -b chore/update_karte_sdk
+      #    git add .
+      #    git commit -m "Update Karte SDK"
+      #    git push origin chore/update_karte_sdk
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: '[WIP] Update KARTE SDK'
+          branch: chore/update_karte_sdk
+          commit-message: 'Update KARTE SDK'
