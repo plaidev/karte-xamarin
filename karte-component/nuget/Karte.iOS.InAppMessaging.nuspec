@@ -1,25 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package >
+<?xml version='1.0' encoding='UTF-8'?>
+<package>
   <metadata>
     <id>Karte.iOS.InAppMessaging</id>
-    <version>0.2.0</version>
+    <version>2.11.0</version>
     <authors>Plaid</authors>
     <owners>Plaid</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <license type="expression">Apache-2.0</license>
+    <license type='expression'>Apache-2.0</license>
     <projectUrl>https://github.com/plaidev/karte-xamarin</projectUrl>
     <icon>icon.png</icon>
     <iconUrl>https://github.com/plaidev/karte-xamarin/icon.png</iconUrl>
     <description>KARTE Xamarin iOS Binding</description>
-    <releaseNotes></releaseNotes>
+    <releaseNotes/>
     <copyright>Copyright PLAID, Inc.</copyright>
     <tags>Karte Plaid</tags>
     <dependencies>
-      <dependency id="Karte.iOS.Core" version="0.1.0" />
+      <dependency id='Karte.iOS.Core' version='2.20.0'/>
     </dependencies>
   </metadata>
   <files>
-    <file src="../lib/ios-unified/Karte.iOS.InAppMessaging.dll" target="lib/Xamarin.iOS10" />
-    <file src="..\..\icon.png" />
+    <file src='../lib/ios-unified/Karte.iOS.InAppMessaging.dll' target='lib/Xamarin.iOS10'/>
+    <file src='..\..\icon.png'/>
   </files>
 </package>

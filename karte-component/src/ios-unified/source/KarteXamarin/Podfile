@@ -7,7 +7,7 @@ target 'KarteXamarin' do
   use_frameworks!
 
   # Pods for KarteXamarin
-  pod 'KarteCore', '2.13.0'
+  pod 'KarteCore', '2.20.0'
 
   static_frameworks = ['KarteCore']
 

@@ -222,6 +222,7 @@ SWIFT_CLASS_NAMED("CommandHandler")
 
 
 
+@protocol LibraryConfiguration;
 @protocol KRTIDFADelegate;
 
 /// SDKの設定を保持するクラスです。
@@ -254,6 +255,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) KRTConfigura
 /// <code>true</code> の場合はデフォルトでオプトアウトが有効となり、<code>false</code> の場合は無効となります。<br>
 /// デフォルトは <code>false</code> です。
 @property (nonatomic) BOOL isOptOut;
+/// ライブラリの設定の取得・設定を行います。
+@property (nonatomic, copy) NSArray<id <LibraryConfiguration>> * _Nonnull libraryConfigurations;
 /// IDFA取得用の委譲先インスタンスの取得・設定を行います。<br>
 /// インスタンスが未設定の場合は、IDFAの情報はイベントに付与されません。
 @property (nonatomic, weak) id <KRTIDFADelegate> _Nullable idfaDelegate;
@@ -447,6 +450,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isOptOut;)
 + (BOOL)application:(UIApplication * _Nonnull)app openURL:(NSURL * _Nonnull)url;
 @end
 
+
+/// ライブラリの設定を表すタイプです。
+/// <em>サブモジュールと連携するために用意している機能であり、通常利用で使用することはありません。</em>
+SWIFT_PROTOCOL("_TtP9KarteCore20LibraryConfiguration_")
+@protocol LibraryConfiguration
+@end
+
 /// ログレベルを表す列挙型です。
 typedef SWIFT_ENUM_NAMED(NSInteger, KRTLogLevel, "LogLevel", closed) {
 /// Error
@@ -540,7 +550,23 @@ SWIFT_CLASS_NAMED("TrackerObjectiveC")
 ///
 /// returns:
 /// トラッキングタスクの状態を保持するオブジェクトを返します。
-+ (KRTTrackingTask * _Nonnull)identify:(NSDictionary<NSString *, id> * _Nonnull)values;
++ (KRTTrackingTask * _Nonnull)identify:(NSDictionary<NSString *, id> * _Nonnull)values SWIFT_DEPRECATED_MSG("userId is a required parameter");
+/// Identifyイベントの送信を行います。
+/// \param userId ユーザーを識別する一意なID
+///
+/// \param values Identifyイベントに紐付けるカスタムオブジェクト
+///
+///
+/// returns:
+/// トラッキングタスクの状態を保持するオブジェクトを返します。
++ (KRTTrackingTask * _Nonnull)identify:(NSString * _Nonnull)userId :(NSDictionary<NSString *, id> * _Nonnull)values;
+/// Attributeイベントの送信を行います。
+/// \param values Attributeイベントに紐付けるカスタムオブジェクト
+///
+///
+/// returns:
+/// トラッキングタスクの状態を保持するオブジェクトを返します。
++ (KRTTrackingTask * _Nonnull)attribute:(NSDictionary<NSString *, id> * _Nonnull)values;
 /// Viewイベントの送信を行います。
 /// \param viewName 画面名
 ///
@@ -590,7 +616,23 @@ SWIFT_CLASS_NAMED("TrackerObjectiveC")
 ///
 /// returns:
 /// トラッキングタスクの状態を保持するオブジェクトを返します。
-- (KRTTrackingTask * _Nonnull)identify:(NSDictionary<NSString *, id> * _Nonnull)values;
+- (KRTTrackingTask * _Nonnull)identify:(NSDictionary<NSString *, id> * _Nonnull)values SWIFT_DEPRECATED_MSG("userId is a required parameter");
+/// Identifyイベントの送信を行います。
+/// \param userId ユーザーを識別する一意なID
+///
+/// \param values Identifyイベントに紐付けるカスタムオブジェクト
+///
+///
+/// returns:
+/// トラッキングタスクの状態を保持するオブジェクトを返します。
+- (KRTTrackingTask * _Nonnull)identify:(NSString * _Nonnull)userId :(NSDictionary<NSString *, id> * _Nonnull)values;
+/// Attributeイベントの送信を行います。
+/// \param values Attributeイベントに紐付けるカスタムオブジェクト
+///
+///
+/// returns:
+/// トラッキングタスクの状態を保持するオブジェクトを返します。
+- (KRTTrackingTask * _Nonnull)attribute:(NSDictionary<NSString *, id> * _Nonnull)values;
 /// Viewイベントの送信を行います。
 /// \param viewName 画面名
 ///
@@ -890,6 +932,7 @@ SWIFT_CLASS_NAMED("CommandHandler")
 
 
 
+@protocol LibraryConfiguration;
 @protocol KRTIDFADelegate;
 
 /// SDKの設定を保持するクラスです。
@@ -922,6 +965,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) KRTConfigura
 /// <code>true</code> の場合はデフォルトでオプトアウトが有効となり、<code>false</code> の場合は無効となります。<br>
 /// デフォルトは <code>false</code> です。
 @property (nonatomic) BOOL isOptOut;
+/// ライブラリの設定の取得・設定を行います。
+@property (nonatomic, copy) NSArray<id <LibraryConfiguration>> * _Nonnull libraryConfigurations;
 /// IDFA取得用の委譲先インスタンスの取得・設定を行います。<br>
 /// インスタンスが未設定の場合は、IDFAの情報はイベントに付与されません。
 @property (nonatomic, weak) id <KRTIDFADelegate> _Nullable idfaDelegate;
@@ -1115,6 +1160,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isOptOut;)
 + (BOOL)application:(UIApplication * _Nonnull)app openURL:(NSURL * _Nonnull)url;
 @end
 
+
+/// ライブラリの設定を表すタイプです。
+/// <em>サブモジュールと連携するために用意している機能であり、通常利用で使用することはありません。</em>
+SWIFT_PROTOCOL("_TtP9KarteCore20LibraryConfiguration_")
+@protocol LibraryConfiguration
+@end
+
 /// ログレベルを表す列挙型です。
 typedef SWIFT_ENUM_NAMED(NSInteger, KRTLogLevel, "LogLevel", closed) {
 /// Error
@@ -1208,7 +1260,23 @@ SWIFT_CLASS_NAMED("TrackerObjectiveC")
 ///
 /// returns:
 /// トラッキングタスクの状態を保持するオブジェクトを返します。
-+ (KRTTrackingTask * _Nonnull)identify:(NSDictionary<NSString *, id> * _Nonnull)values;
++ (KRTTrackingTask * _Nonnull)identify:(NSDictionary<NSString *, id> * _Nonnull)values SWIFT_DEPRECATED_MSG("userId is a required parameter");
+/// Identifyイベントの送信を行います。
+/// \param userId ユーザーを識別する一意なID
+///
+/// \param values Identifyイベントに紐付けるカスタムオブジェクト
+///
+///
+/// returns:
+/// トラッキングタスクの状態を保持するオブジェクトを返します。
++ (KRTTrackingTask * _Nonnull)identify:(NSString * _Nonnull)userId :(NSDictionary<NSString *, id> * _Nonnull)values;
+/// Attributeイベントの送信を行います。
+/// \param values Attributeイベントに紐付けるカスタムオブジェクト
+///
+///
+/// returns:
+/// トラッキングタスクの状態を保持するオブジェクトを返します。
++ (KRTTrackingTask * _Nonnull)attribute:(NSDictionary<NSString *, id> * _Nonnull)values;
 /// Viewイベントの送信を行います。
 /// \param viewName 画面名
 ///
@@ -1258,7 +1326,23 @@ SWIFT_CLASS_NAMED("TrackerObjectiveC")
 ///
 /// returns:
 /// トラッキングタスクの状態を保持するオブジェクトを返します。
-- (KRTTrackingTask * _Nonnull)identify:(NSDictionary<NSString *, id> * _Nonnull)values;
+- (KRTTrackingTask * _Nonnull)identify:(NSDictionary<NSString *, id> * _Nonnull)values SWIFT_DEPRECATED_MSG("userId is a required parameter");
+/// Identifyイベントの送信を行います。
+/// \param userId ユーザーを識別する一意なID
+///
+/// \param values Identifyイベントに紐付けるカスタムオブジェクト
+///
+///
+/// returns:
+/// トラッキングタスクの状態を保持するオブジェクトを返します。
+- (KRTTrackingTask * _Nonnull)identify:(NSString * _Nonnull)userId :(NSDictionary<NSString *, id> * _Nonnull)values;
+/// Attributeイベントの送信を行います。
+/// \param values Attributeイベントに紐付けるカスタムオブジェクト
+///
+///
+/// returns:
+/// トラッキングタスクの状態を保持するオブジェクトを返します。
+- (KRTTrackingTask * _Nonnull)attribute:(NSDictionary<NSString *, id> * _Nonnull)values;
 /// Viewイベントの送信を行います。
 /// \param viewName 画面名
 ///

@@ -8,7 +8,7 @@ namespace IO.Karte.Android
 
         public string Name => "xamarin";
 
-        public string Version => "0.3.0";
+        public string Version => "2.18.0";
 
         public void Configure(KarteApp app) { }
 
