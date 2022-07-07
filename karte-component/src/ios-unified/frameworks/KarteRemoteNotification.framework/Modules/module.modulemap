@@ -1,5 +1,5 @@
 framework module KarteRemoteNotification {
-  umbrella header "KarteRemoteNotification-umbrella.h"
+  umbrella header "KarteRemoteNotification.h"
 
   export *
   module * { export * }
