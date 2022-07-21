@@ -70,8 +70,6 @@ if version_diff[:ios][:Core].nil?
   write_ios_nuspec(doc, 'Core')
 end
 
-puts ios_core_new_version
-
 # Update KarteXamarin version(iOS)
 karte_xamarin_source_path = "../../karte-component/src/ios-unified/source/KarteXamarin/KarteXamarin/KarteXamarin.m"
 karte_xamarin_source = File.read(karte_xamarin_source_path)

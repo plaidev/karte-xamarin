@@ -15,7 +15,6 @@ FileUtils.mkdir_p(tmp_dir_path)
 Dir.chdir(tmp_dir_path)
 
 updated_versions.each do |module_name, latest_version|
-  #latest_version = latest_versions[module_name]
   file_name = "#{module_name.downcase}-#{latest_version}.aar"
   dst_file_name = "#{module_name.downcase}.aar"
   url = "https://search.maven.org/remotecontent?filepath=io/karte/android/#{module_name.downcase}/#{latest_version}/#{file_name}"
