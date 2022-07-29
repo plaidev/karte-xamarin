@@ -222,6 +222,7 @@ SWIFT_CLASS_NAMED("CommandHandler")
 
 
 
+@protocol LibraryConfiguration;
 @protocol KRTIDFADelegate;
 
 /// SDKの設定を保持するクラスです。
@@ -254,6 +255,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) KRTConfigura
 /// <code>true</code> の場合はデフォルトでオプトアウトが有効となり、<code>false</code> の場合は無効となります。<br>
 /// デフォルトは <code>false</code> です。
 @property (nonatomic) BOOL isOptOut;
+/// ライブラリの設定の取得・設定を行います。
+@property (nonatomic, copy) NSArray<id <LibraryConfiguration>> * _Nonnull libraryConfigurations;
 /// IDFA取得用の委譲先インスタンスの取得・設定を行います。<br>
 /// インスタンスが未設定の場合は、IDFAの情報はイベントに付与されません。
 @property (nonatomic, weak) id <KRTIDFADelegate> _Nullable idfaDelegate;
@@ -447,6 +450,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isOptOut;)
 + (BOOL)application:(UIApplication * _Nonnull)app openURL:(NSURL * _Nonnull)url;
 @end
 
+
+/// ライブラリの設定を表すタイプです。
+/// <em>サブモジュールと連携するために用意している機能であり、通常利用で使用することはありません。</em>
+SWIFT_PROTOCOL("_TtP9KarteCore20LibraryConfiguration_")
+@protocol LibraryConfiguration
+@end
+
 /// ログレベルを表す列挙型です。
 typedef SWIFT_ENUM_NAMED(NSInteger, KRTLogLevel, "LogLevel", closed) {
 /// Error
@@ -540,7 +550,23 @@ SWIFT_CLASS_NAMED("TrackerObjectiveC")
 ///
 /// returns:
 /// トラッキングタスクの状態を保持するオブジェクトを返します。
-+ (KRTTrackingTask * _Nonnull)identify:(NSDictionary<NSString *, id> * _Nonnull)values;
++ (KRTTrackingTask * _Nonnull)identify:(NSDictionary<NSString *, id> * _Nonnull)values SWIFT_DEPRECATED_MSG("userId is a required parameter");
+/// Identifyイベントの送信を行います。
+/// \param userId ユーザーを識別する一意なID
+///
+/// \param values Identifyイベントに紐付けるカスタムオブジェクト
+///
+///
+/// returns:
+/// トラッキングタスクの状態を保持するオブジェクトを返します。
++ (KRTTrackingTask * _Nonnull)identify:(NSString * _Nonnull)userId :(NSDictionary<NSString *, id> * _Nonnull)values;
+/// Attributeイベントの送信を行います。
+/// \param values Attributeイベントに紐付けるカスタムオブジェクト
+///
+///
+/// returns:
+/// トラッキングタスクの状態を保持するオブジェクトを返します。
++ (KRTTrackingTask * _Nonnull)attribute:(NSDictionary<NSString *, id> * _Nonnull)values;
 /// Viewイベントの送信を行います。
 /// \param viewName 画面名
 ///
@@ -590,7 +616,23 @@ SWIFT_CLASS_NAMED("TrackerObjectiveC")
 ///
 /// returns:
 /// トラッキングタスクの状態を保持するオブジェクトを返します。
-- (KRTTrackingTask * _Nonnull)identify:(NSDictionary<NSString *, id> * _Nonnull)values;
+- (KRTTrackingTask * _Nonnull)identify:(NSDictionary<NSString *, id> * _Nonnull)values SWIFT_DEPRECATED_MSG("userId is a required parameter");
+/// Identifyイベントの送信を行います。
+/// \param userId ユーザーを識別する一意なID
+///
+/// \param values Identifyイベントに紐付けるカスタムオブジェクト
+///
+///
+/// returns:
+/// トラッキングタスクの状態を保持するオブジェクトを返します。
+- (KRTTrackingTask * _Nonnull)identify:(NSString * _Nonnull)userId :(NSDictionary<NSString *, id> * _Nonnull)values;
+/// Attributeイベントの送信を行います。
+/// \param values Attributeイベントに紐付けるカスタムオブジェクト
+///
+///
+/// returns:
+/// トラッキングタスクの状態を保持するオブジェクトを返します。
+- (KRTTrackingTask * _Nonnull)attribute:(NSDictionary<NSString *, id> * _Nonnull)values;
 /// Viewイベントの送信を行います。
 /// \param viewName 画面名
 ///
@@ -633,7 +675,7 @@ SWIFT_CLASS_NAMED("TrackingTask")
 @class WKWebView;
 
 /// WebView 連携するためのクラスです。
-/// WebページURLに連携用のクエリパラメータを付与した状態で、URLをWebViewで開くことでWebとAppのユーザーの紐付けが行われます。<br>
+/// Webページを開くWebViewに連携用のスクリプトを設定することで、WebとAppのユーザーの紐付けが行われます。<br>
 /// なお連携を行うためにはWebページに、KARTEのタグが埋め込まれている必要があります。
 SWIFT_CLASS_NAMED("UserSync")
 @interface KRTUserSync : NSObject
@@ -643,20 +685,27 @@ SWIFT_CLASS_NAMED("UserSync")
 ///
 /// returns:
 /// 連携用のクエリパラメータを付与したURL文字列を返します。指定されたURL文字列の形式が正しくない場合、またはSDKの初期化が行われていない場合は、引数に指定したURL文字列を返します。
-+ (NSString * _Nonnull)appendingQueryParameterWithURLString:(NSString * _Nonnull)urlString SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)appendingQueryParameterWithURLString:(NSString * _Nonnull)urlString SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("User sync function using query parameters is deprecated. It will be removed in the future. Use setUserSyncSript.");
 /// 指定されたURLにWebView連携用のクエリパラメータを付与します。
 /// \param url 連携するページのURL
 ///
 ///
 /// returns:
 /// 連携用のクエリパラメータを付与したURLを返します。SDKの初期化が行われていない場合は、引数に指定したURLを返します。
-+ (NSURL * _Nonnull)appendingQueryParameterWithURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
++ (NSURL * _Nonnull)appendingQueryParameterWithURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("User sync function using query parameters is deprecated. It will be removed in the future. Use setUserSyncSript.");
 /// WKWebViewに連携用のスクリプトを設定します。<br>
 /// スクリプトはユーザースクリプトとして設定されます。
 /// なおSDKの初期化が行われていない場合は設定されません。
 /// \param webView <code>WKWebView</code>
 ///
 + (void)setUserSyncScriptWithWebView:(WKWebView * _Nonnull)webView;
+/// WebViewに連携するためのスクリプトを生成します。<br>
+/// スクリプトをユーザースクリプトとしてWebViewに設定することで連携できます。
+/// なおSDKの初期化が行われていない場合はnilが返却されます。
+///
+/// returns:
+/// 生成したスクリプト文字列を返します。SDKの初期化が行われていない場合は nil を返します。
++ (NSString * _Nullable)getUserSyncScript SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -890,6 +939,7 @@ SWIFT_CLASS_NAMED("CommandHandler")
 
 
 
+@protocol LibraryConfiguration;
 @protocol KRTIDFADelegate;
 
 /// SDKの設定を保持するクラスです。
@@ -922,6 +972,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) KRTConfigura
 /// <code>true</code> の場合はデフォルトでオプトアウトが有効となり、<code>false</code> の場合は無効となります。<br>
 /// デフォルトは <code>false</code> です。
 @property (nonatomic) BOOL isOptOut;
+/// ライブラリの設定の取得・設定を行います。
+@property (nonatomic, copy) NSArray<id <LibraryConfiguration>> * _Nonnull libraryConfigurations;
 /// IDFA取得用の委譲先インスタンスの取得・設定を行います。<br>
 /// インスタンスが未設定の場合は、IDFAの情報はイベントに付与されません。
 @property (nonatomic, weak) id <KRTIDFADelegate> _Nullable idfaDelegate;
@@ -1115,6 +1167,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isOptOut;)
 + (BOOL)application:(UIApplication * _Nonnull)app openURL:(NSURL * _Nonnull)url;
 @end
 
+
+/// ライブラリの設定を表すタイプです。
+/// <em>サブモジュールと連携するために用意している機能であり、通常利用で使用することはありません。</em>
+SWIFT_PROTOCOL("_TtP9KarteCore20LibraryConfiguration_")
+@protocol LibraryConfiguration
+@end
+
 /// ログレベルを表す列挙型です。
 typedef SWIFT_ENUM_NAMED(NSInteger, KRTLogLevel, "LogLevel", closed) {
 /// Error
@@ -1208,7 +1267,23 @@ SWIFT_CLASS_NAMED("TrackerObjectiveC")
 ///
 /// returns:
 /// トラッキングタスクの状態を保持するオブジェクトを返します。
-+ (KRTTrackingTask * _Nonnull)identify:(NSDictionary<NSString *, id> * _Nonnull)values;
++ (KRTTrackingTask * _Nonnull)identify:(NSDictionary<NSString *, id> * _Nonnull)values SWIFT_DEPRECATED_MSG("userId is a required parameter");
+/// Identifyイベントの送信を行います。
+/// \param userId ユーザーを識別する一意なID
+///
+/// \param values Identifyイベントに紐付けるカスタムオブジェクト
+///
+///
+/// returns:
+/// トラッキングタスクの状態を保持するオブジェクトを返します。
++ (KRTTrackingTask * _Nonnull)identify:(NSString * _Nonnull)userId :(NSDictionary<NSString *, id> * _Nonnull)values;
+/// Attributeイベントの送信を行います。
+/// \param values Attributeイベントに紐付けるカスタムオブジェクト
+///
+///
+/// returns:
+/// トラッキングタスクの状態を保持するオブジェクトを返します。
++ (KRTTrackingTask * _Nonnull)attribute:(NSDictionary<NSString *, id> * _Nonnull)values;
 /// Viewイベントの送信を行います。
 /// \param viewName 画面名
 ///
@@ -1258,7 +1333,23 @@ SWIFT_CLASS_NAMED("TrackerObjectiveC")
 ///
 /// returns:
 /// トラッキングタスクの状態を保持するオブジェクトを返します。
-- (KRTTrackingTask * _Nonnull)identify:(NSDictionary<NSString *, id> * _Nonnull)values;
+- (KRTTrackingTask * _Nonnull)identify:(NSDictionary<NSString *, id> * _Nonnull)values SWIFT_DEPRECATED_MSG("userId is a required parameter");
+/// Identifyイベントの送信を行います。
+/// \param userId ユーザーを識別する一意なID
+///
+/// \param values Identifyイベントに紐付けるカスタムオブジェクト
+///
+///
+/// returns:
+/// トラッキングタスクの状態を保持するオブジェクトを返します。
+- (KRTTrackingTask * _Nonnull)identify:(NSString * _Nonnull)userId :(NSDictionary<NSString *, id> * _Nonnull)values;
+/// Attributeイベントの送信を行います。
+/// \param values Attributeイベントに紐付けるカスタムオブジェクト
+///
+///
+/// returns:
+/// トラッキングタスクの状態を保持するオブジェクトを返します。
+- (KRTTrackingTask * _Nonnull)attribute:(NSDictionary<NSString *, id> * _Nonnull)values;
 /// Viewイベントの送信を行います。
 /// \param viewName 画面名
 ///
@@ -1301,7 +1392,7 @@ SWIFT_CLASS_NAMED("TrackingTask")
 @class WKWebView;
 
 /// WebView 連携するためのクラスです。
-/// WebページURLに連携用のクエリパラメータを付与した状態で、URLをWebViewで開くことでWebとAppのユーザーの紐付けが行われます。<br>
+/// Webページを開くWebViewに連携用のスクリプトを設定することで、WebとAppのユーザーの紐付けが行われます。<br>
 /// なお連携を行うためにはWebページに、KARTEのタグが埋め込まれている必要があります。
 SWIFT_CLASS_NAMED("UserSync")
 @interface KRTUserSync : NSObject
@@ -1311,20 +1402,27 @@ SWIFT_CLASS_NAMED("UserSync")
 ///
 /// returns:
 /// 連携用のクエリパラメータを付与したURL文字列を返します。指定されたURL文字列の形式が正しくない場合、またはSDKの初期化が行われていない場合は、引数に指定したURL文字列を返します。
-+ (NSString * _Nonnull)appendingQueryParameterWithURLString:(NSString * _Nonnull)urlString SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)appendingQueryParameterWithURLString:(NSString * _Nonnull)urlString SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("User sync function using query parameters is deprecated. It will be removed in the future. Use setUserSyncSript.");
 /// 指定されたURLにWebView連携用のクエリパラメータを付与します。
 /// \param url 連携するページのURL
 ///
 ///
 /// returns:
 /// 連携用のクエリパラメータを付与したURLを返します。SDKの初期化が行われていない場合は、引数に指定したURLを返します。
-+ (NSURL * _Nonnull)appendingQueryParameterWithURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
++ (NSURL * _Nonnull)appendingQueryParameterWithURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("User sync function using query parameters is deprecated. It will be removed in the future. Use setUserSyncSript.");
 /// WKWebViewに連携用のスクリプトを設定します。<br>
 /// スクリプトはユーザースクリプトとして設定されます。
 /// なおSDKの初期化が行われていない場合は設定されません。
 /// \param webView <code>WKWebView</code>
 ///
 + (void)setUserSyncScriptWithWebView:(WKWebView * _Nonnull)webView;
+/// WebViewに連携するためのスクリプトを生成します。<br>
+/// スクリプトをユーザースクリプトとしてWebViewに設定することで連携できます。
+/// なおSDKの初期化が行われていない場合はnilが返却されます。
+///
+/// returns:
+/// 生成したスクリプト文字列を返します。SDKの初期化が行われていない場合は nil を返します。
++ (NSString * _Nullable)getUserSyncScript SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
