@@ -211,12 +211,14 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 
-@interface KRTApp (SWIFT_EXTENSION(KarteRemoteNotification))
-/// FCM（Firebase Cloud Messaging）トークンを登録します。
-/// なお初期化が行われていない状態で呼び出した場合は登録処理は行われません。
-/// \param fcmToken FCMトークン
-///
+
+/// SwiftとObjective-Cの互換性のためのクラスです。
+/// <em>SDK内部で利用するクラスであり、通常のSDK利用でこちらのクラスを利用することはありません。</em>
+SWIFT_CLASS("_TtC23KarteRemoteNotification34ObjcCompatibleScopeForNotification")
+@interface ObjcCompatibleScopeForNotification : NSObject
 + (void)registerFCMToken:(NSString * _Nullable)fcmToken;
++ (void)trackClickWithUserInfo:(NSDictionary * _Nonnull)userInfo;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -227,7 +229,7 @@ SWIFT_CLASS_NAMED("RemoteNotification")
 /// フラグを <code>false</code> にした場合は、自動でのクリック計測が行われません。<br>
 /// デフォルトは <code>true</code> です。
 /// <em>本フラグの設定は <code>KarteApp.setup(appKey:)</code> を呼び出す前に行う必要があります。</em>
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL isEnabledAutoMeasurement;)
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL isEnabledAutoMeasurement SWIFT_DEPRECATED_MSG("", "isEnabledAutoMeasurement");)
 + (BOOL)isEnabledAutoMeasurement SWIFT_WARN_UNUSED_RESULT;
 + (void)setIsEnabledAutoMeasurement:(BOOL)newValue;
 /// 通知メッセージ中に含まれる <code>URL</code> を返します。
@@ -267,13 +269,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL isEnabledAutoMeasurement;
 
 
 
-
-@interface KRTTracker (SWIFT_EXTENSION(KarteRemoteNotification))
-/// 通知の効果測定用のイベント（message_click）を発火します。
-/// \param userInfo 通知ペイロード
-///
-+ (void)trackClickWithUserInfo:(NSDictionary * _Nonnull)userInfo;
+/// RemoteNotificationモジュールの設定を保持するクラスです。
+SWIFT_CLASS_NAMED("RemoteNotificationConfiguration")
+@interface KRTRemoteNotificationConfiguration : NSObject <LibraryConfiguration>
+/// 通知のクリック計測を自動で行うかどうかを表すフラグを返します。<br>
+/// フラグを <code>false</code> にした場合は、自動でのクリック計測が行われません。<br>
+/// デフォルトは <code>true</code> です。
+@property (nonatomic) BOOL isEnabledAutoMeasurement;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
@@ -493,12 +498,14 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 
-@interface KRTApp (SWIFT_EXTENSION(KarteRemoteNotification))
-/// FCM（Firebase Cloud Messaging）トークンを登録します。
-/// なお初期化が行われていない状態で呼び出した場合は登録処理は行われません。
-/// \param fcmToken FCMトークン
-///
+
+/// SwiftとObjective-Cの互換性のためのクラスです。
+/// <em>SDK内部で利用するクラスであり、通常のSDK利用でこちらのクラスを利用することはありません。</em>
+SWIFT_CLASS("_TtC23KarteRemoteNotification34ObjcCompatibleScopeForNotification")
+@interface ObjcCompatibleScopeForNotification : NSObject
 + (void)registerFCMToken:(NSString * _Nullable)fcmToken;
++ (void)trackClickWithUserInfo:(NSDictionary * _Nonnull)userInfo;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -509,7 +516,7 @@ SWIFT_CLASS_NAMED("RemoteNotification")
 /// フラグを <code>false</code> にした場合は、自動でのクリック計測が行われません。<br>
 /// デフォルトは <code>true</code> です。
 /// <em>本フラグの設定は <code>KarteApp.setup(appKey:)</code> を呼び出す前に行う必要があります。</em>
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL isEnabledAutoMeasurement;)
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL isEnabledAutoMeasurement SWIFT_DEPRECATED_MSG("", "isEnabledAutoMeasurement");)
 + (BOOL)isEnabledAutoMeasurement SWIFT_WARN_UNUSED_RESULT;
 + (void)setIsEnabledAutoMeasurement:(BOOL)newValue;
 /// 通知メッセージ中に含まれる <code>URL</code> を返します。
@@ -549,13 +556,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL isEnabledAutoMeasurement;
 
 
 
-
-@interface KRTTracker (SWIFT_EXTENSION(KarteRemoteNotification))
-/// 通知の効果測定用のイベント（message_click）を発火します。
-/// \param userInfo 通知ペイロード
-///
-+ (void)trackClickWithUserInfo:(NSDictionary * _Nonnull)userInfo;
+/// RemoteNotificationモジュールの設定を保持するクラスです。
+SWIFT_CLASS_NAMED("RemoteNotificationConfiguration")
+@interface KRTRemoteNotificationConfiguration : NSObject <LibraryConfiguration>
+/// 通知のクリック計測を自動で行うかどうかを表すフラグを返します。<br>
+/// フラグを <code>false</code> にした場合は、自動でのクリック計測が行われません。<br>
+/// デフォルトは <code>true</code> です。
+@property (nonatomic) BOOL isEnabledAutoMeasurement;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop

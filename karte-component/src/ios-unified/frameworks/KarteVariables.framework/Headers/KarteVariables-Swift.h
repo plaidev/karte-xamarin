@@ -190,7 +190,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
-@import KarteCore;
+@import Foundation;
 @import ObjectiveC;
 #endif
 
@@ -209,32 +209,30 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-
+/// 最終フェッチステータスを表す列挙型です。
+typedef SWIFT_ENUM_NAMED(NSInteger, KRTLastFetchStatus, "LastFetchStatus", closed) {
+/// nofetchYet
+  KRTLastFetchStatusNofetchYet = 0,
+/// success
+  KRTLastFetchStatusSuccess = 1,
+/// failure
+  KRTLastFetchStatusFailure = 2,
+};
 
 @class KRTVariable;
 
-@interface KRTTracker (SWIFT_EXTENSION(KarteVariables))
-/// 指定された設定値に関連するキャンペーン情報を元に効果測定用のイベント（message_open）を発火します。
-/// \param variables 設定値の配列
-///
+/// SwiftとObjective-Cの互換性のためのクラスです。
+/// <em>SDK内部で利用するクラスであり、通常のSDK利用でこちらのクラスを利用することはありません。</em>
+SWIFT_CLASS("_TtC14KarteVariables31ObjcCompatibleScopeForVariables")
+@interface ObjcCompatibleScopeForVariables : NSObject
 + (void)trackOpenWithVariables:(NSArray<KRTVariable *> * _Nonnull)variables;
-/// 指定された設定値に関連するキャンペーン情報を元に効果測定用のイベント（message_open）を発火します。
-/// \param variables 設定値の配列
-///
-/// \param values イベントに紐付けるカスタムオブジェクト
-///
 + (void)trackOpenWithVariables:(NSArray<KRTVariable *> * _Nonnull)variables values:(NSDictionary<NSString *, id> * _Nonnull)values;
-/// 指定された設定値に関連するキャンペーン情報を元に効果測定用のイベント（message_click）を発火します。
-/// \param variables 設定値の配列
-///
 + (void)trackClickWithVariables:(NSArray<KRTVariable *> * _Nonnull)variables;
-/// 指定された設定値に関連するキャンペーン情報を元に効果測定用のイベント（message_click）を発火します。
-/// \param variables 設定値の配列
-///
-/// \param values イベントに紐付けるカスタムオブジェクト
-///
 + (void)trackClickWithVariables:(NSArray<KRTVariable *> * _Nonnull)variables values:(NSDictionary<NSString *, id> * _Nonnull)values;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
 
 
 /// 設定値とそれに付随する情報を保持するためのクラスです。<br>
@@ -354,9 +352,19 @@ SWIFT_CLASS_NAMED("Variable")
 /// 設定値の取得・管理を司るクラスです。
 SWIFT_CLASS_NAMED("Variables")
 @interface KRTVariables : NSObject
+/// 最終フェッチ完了時間を返します、未フェッチな場合は <code>nil</code> を返します
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSDate * _Nullable lastFetchTime;)
++ (NSDate * _Nullable)lastFetchTime SWIFT_WARN_UNUSED_RESULT;
+/// 最終フェッチ完了ステータスを返します
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) enum KRTLastFetchStatus lastFetchStatus;)
++ (enum KRTLastFetchStatus)lastFetchStatus SWIFT_WARN_UNUSED_RESULT;
 /// ローダークラスが Objective-Cランライムに追加されたタイミングで呼び出されるメソッドです。
 /// 本メソッドが呼び出されたタイミングで、<code>KarteApp</code> クラスに本クラスをライブラリとして登録します。
 + (void)_krt_load;
+/// 直近指定秒以内に成功したフェッチ結果があるかどうかを返します
+/// \param inSeconds 秒数（1以上）
+///
++ (BOOL)hasSuccessfulLastFetchInSeconds:(NSTimeInterval)inSeconds SWIFT_WARN_UNUSED_RESULT;
 /// 設定値を取得し、端末上にキャッシュします。
 /// \param completion 取得完了ハンドラ
 ///
@@ -371,6 +379,7 @@ SWIFT_CLASS_NAMED("Variables")
 + (KRTVariable * _Nonnull)variableForKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 
@@ -571,7 +580,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
-@import KarteCore;
+@import Foundation;
 @import ObjectiveC;
 #endif
 
@@ -590,32 +599,30 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-
+/// 最終フェッチステータスを表す列挙型です。
+typedef SWIFT_ENUM_NAMED(NSInteger, KRTLastFetchStatus, "LastFetchStatus", closed) {
+/// nofetchYet
+  KRTLastFetchStatusNofetchYet = 0,
+/// success
+  KRTLastFetchStatusSuccess = 1,
+/// failure
+  KRTLastFetchStatusFailure = 2,
+};
 
 @class KRTVariable;
 
-@interface KRTTracker (SWIFT_EXTENSION(KarteVariables))
-/// 指定された設定値に関連するキャンペーン情報を元に効果測定用のイベント（message_open）を発火します。
-/// \param variables 設定値の配列
-///
+/// SwiftとObjective-Cの互換性のためのクラスです。
+/// <em>SDK内部で利用するクラスであり、通常のSDK利用でこちらのクラスを利用することはありません。</em>
+SWIFT_CLASS("_TtC14KarteVariables31ObjcCompatibleScopeForVariables")
+@interface ObjcCompatibleScopeForVariables : NSObject
 + (void)trackOpenWithVariables:(NSArray<KRTVariable *> * _Nonnull)variables;
-/// 指定された設定値に関連するキャンペーン情報を元に効果測定用のイベント（message_open）を発火します。
-/// \param variables 設定値の配列
-///
-/// \param values イベントに紐付けるカスタムオブジェクト
-///
 + (void)trackOpenWithVariables:(NSArray<KRTVariable *> * _Nonnull)variables values:(NSDictionary<NSString *, id> * _Nonnull)values;
-/// 指定された設定値に関連するキャンペーン情報を元に効果測定用のイベント（message_click）を発火します。
-/// \param variables 設定値の配列
-///
 + (void)trackClickWithVariables:(NSArray<KRTVariable *> * _Nonnull)variables;
-/// 指定された設定値に関連するキャンペーン情報を元に効果測定用のイベント（message_click）を発火します。
-/// \param variables 設定値の配列
-///
-/// \param values イベントに紐付けるカスタムオブジェクト
-///
 + (void)trackClickWithVariables:(NSArray<KRTVariable *> * _Nonnull)variables values:(NSDictionary<NSString *, id> * _Nonnull)values;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
 
 
 /// 設定値とそれに付随する情報を保持するためのクラスです。<br>
@@ -735,9 +742,19 @@ SWIFT_CLASS_NAMED("Variable")
 /// 設定値の取得・管理を司るクラスです。
 SWIFT_CLASS_NAMED("Variables")
 @interface KRTVariables : NSObject
+/// 最終フェッチ完了時間を返します、未フェッチな場合は <code>nil</code> を返します
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSDate * _Nullable lastFetchTime;)
++ (NSDate * _Nullable)lastFetchTime SWIFT_WARN_UNUSED_RESULT;
+/// 最終フェッチ完了ステータスを返します
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) enum KRTLastFetchStatus lastFetchStatus;)
++ (enum KRTLastFetchStatus)lastFetchStatus SWIFT_WARN_UNUSED_RESULT;
 /// ローダークラスが Objective-Cランライムに追加されたタイミングで呼び出されるメソッドです。
 /// 本メソッドが呼び出されたタイミングで、<code>KarteApp</code> クラスに本クラスをライブラリとして登録します。
 + (void)_krt_load;
+/// 直近指定秒以内に成功したフェッチ結果があるかどうかを返します
+/// \param inSeconds 秒数（1以上）
+///
++ (BOOL)hasSuccessfulLastFetchInSeconds:(NSTimeInterval)inSeconds SWIFT_WARN_UNUSED_RESULT;
 /// 設定値を取得し、端末上にキャッシュします。
 /// \param completion 取得完了ハンドラ
 ///
@@ -752,6 +769,7 @@ SWIFT_CLASS_NAMED("Variables")
 + (KRTVariable * _Nonnull)variableForKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 

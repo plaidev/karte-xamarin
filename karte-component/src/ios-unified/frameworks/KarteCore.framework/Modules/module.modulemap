@@ -1,5 +1,5 @@
 framework module KarteCore {
-  umbrella header "KarteCore-umbrella.h"
+  umbrella header "KarteCore.h"
 
   export *
   module * { export * }
