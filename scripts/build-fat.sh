@@ -6,7 +6,7 @@ cd `dirname $0`
 
 echo "Define parameters"
 
-IOS_SDK_VER="14.3" # xcodebuild -showsdks
+IOS_SDK_VER="15.5" # xcodebuild -showsdks
 SRC_PROJ_NAME="KarteTracker"
 SRC_PATH="../../karte-ios-tools/Example/$SRC_PROJ_NAME.xcworkspace"
 KARTE_XM_PATH="../karte-component/src/ios-unified/source/KarteXamarin/KarteXamarin.xcworkspace"

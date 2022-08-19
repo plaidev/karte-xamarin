@@ -1,5 +1,5 @@
 framework module KarteInAppMessaging {
-  umbrella header "KarteInAppMessaging.h"
+  umbrella header "KarteInAppMessaging-umbrella.h"
 
   export *
   module * { export * }

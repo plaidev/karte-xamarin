@@ -1,5 +1,5 @@
 framework module KarteUtilities {
-  umbrella header "KarteUtilities.h"
+  umbrella header "KarteUtilities-umbrella.h"
 
   export *
   module * { export * }

@@ -36,7 +36,7 @@ namespace KarteiOSSample
             configuration.IsDryRun = false;
 
             KRTApp.SetLogLevel(KRTLogLevel.Verbose);
-            KRTApp.SetupWithAppKey("APP_KEY", configuration);
+            KRTApp.SetupWithAppKey("YOUR_APP_KEY", configuration);
             KRTInAppMessaging.Configure();
             KRTNotification.Configure();
             KRTVariables.Configure();
@@ -50,6 +50,7 @@ namespace KarteiOSSample
             string[] btnTitles = new string[]
             {
                 "Identify",
+                "Attribute",
                 "View",
                 "Track",
                 "ViewForScene",
@@ -90,6 +91,9 @@ namespace KarteiOSSample
                         case "Identify":
                             KRTTracker.Identify(new NSDictionary("name", "sample-name"));
                             break;
+                        case "Attribute":
+                            KRTTracker.Attribute(new NSDictionary("age", 20));
+                            break;
                         case "View":
                             KRTTracker.View("banner");
                             break;
@@ -118,6 +122,8 @@ namespace KarteiOSSample
 
                             var appendingQueryParameterUrl2 = KRTUserSync.AppendingQueryParameterWithURLString(nSUrl.AbsoluteString);
                             System.Diagnostics.Debug.WriteLine("AppendingQueryParameterWithURLString: " + appendingQueryParameterUrl2);
+
+                            System.Diagnostics.Debug.WriteLine("UserSyncScript: " + KRTUserSync.UserSyncScript);
 
                             var webView = new WKWebView(CoreGraphics.CGRect.Empty, new WKWebViewConfiguration());
                             KRTUserSync.SetUserSyncScriptWithWebView(webView);
@@ -187,6 +193,13 @@ namespace KarteiOSSample
                 var nulDict = new NSDictionary("test-key", "test-value");
                 nulDict = null; 
                 KRTVariables.TrackVariableOpen(variables, nulDict);
+
+                var hasSuccessfulFetch = KRTVariables.HasSuccessfulLastFetchInSeconds(1.0);
+                System.Diagnostics.Debug.WriteLine("HasLastSuccessfulFetch: " + hasSuccessfulFetch.ToString());
+                var lastFetchTime = KRTVariables.LastFetchTime;
+                System.Diagnostics.Debug.WriteLine("lastFetchTime: " + lastFetchTime.ToString());
+                var lastFetchStatus = KRTVariables.LastFetchStatus;
+                System.Diagnostics.Debug.WriteLine("lastFetchStatus: " + lastFetchStatus.ToString());
             });
         }
     }

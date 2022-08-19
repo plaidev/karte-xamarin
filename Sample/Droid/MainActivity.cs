@@ -77,6 +77,13 @@ namespace SampleApp.Droid
                     System.Diagnostics.Debug.WriteLine("TrackingTask isSuccess: " + isSuccess);
                 });
             });
+            SetButtonsDelegate(Resource.Id.buttonAttribute, (button) =>
+            {
+                System.Diagnostics.Debug.WriteLine("Attribute");
+                Tracker.Attribute(new Dictionary<string, object>() {
+                    {"age", "20"}
+                });
+            });
             SetButtonsDelegate(Resource.Id.buttonPush, (button) =>
             {
                 Tracker.View("push_text", "push_text", new Dictionary<string, object>() {
@@ -129,6 +136,9 @@ namespace SampleApp.Droid
 
             var appendingQueryParameterUrl2 = UserSync.AppendUserSyncQueryParameter(uri.ToString());
             System.Diagnostics.Debug.WriteLine("AppendingQueryParameterWithURLString: " + appendingQueryParameterUrl2);
+
+            var userSyncScript = UserSync.UserSyncScript;
+            System.Diagnostics.Debug.WriteLine("UserSyncScript: " + userSyncScript);
 
             var webView = new WebView(this);
             webView.Settings.JavaScriptEnabled = true;

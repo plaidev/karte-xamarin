@@ -13,8 +13,8 @@
 		android:textAppearance="?android:attr/textAppearanceMedium"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" 
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
 		android:id="@+id/textTracking" />
 	<Button
 		android:text="Identify"
@@ -22,32 +22,40 @@
 		android:id="@+id/buttonIdentify"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/textTracking"
-        app:layout_constraintTop_toBottomOf="@id/textTracking" />
+		app:layout_constraintStart_toStartOf="@id/textTracking"
+		app:layout_constraintTop_toBottomOf="@id/textTracking" />
 	<Button
 		android:text="View"
 		android:textAllCaps="false"
 		android:id="@+id/buttonView"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/buttonIdentify"
-        app:layout_constraintTop_toBottomOf="@id/textTracking" />
+		app:layout_constraintStart_toEndOf="@id/buttonIdentify"
+		app:layout_constraintTop_toBottomOf="@id/textTracking" />
 	<Button
 		android:text="Track"
 		android:textAllCaps="false"
 		android:id="@+id/buttonTrack"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/buttonView"
-        app:layout_constraintTop_toBottomOf="@id/textTracking" />
+		app:layout_constraintStart_toEndOf="@id/buttonView"
+		app:layout_constraintTop_toBottomOf="@id/textTracking" />
+	<Button
+		android:text="Attribute"
+		android:textAllCaps="false"
+		android:id="@+id/buttonAttribute"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:layout_constraintStart_toEndOf="@id/buttonTrack"
+		app:layout_constraintTop_toBottomOf="@id/textTracking" />
 
 	<TextView
 		android:text="InAppMessaging"
 		android:textAppearance="?android:attr/textAppearanceMedium"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonIdentify" 
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/buttonIdentify"
 		android:id="@+id/textInAppMessaging" />
 	<Button
 		android:text="IsPresenting"
@@ -55,40 +63,40 @@
 		android:id="@+id/buttonIsPresenting"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/textInAppMessaging"
-        app:layout_constraintTop_toBottomOf="@id/textInAppMessaging" />
+		app:layout_constraintStart_toStartOf="@id/textInAppMessaging"
+		app:layout_constraintTop_toBottomOf="@id/textInAppMessaging" />
 	<Button
 		android:text="Dismiss"
 		android:textAllCaps="false"
 		android:id="@+id/buttonDismiss"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/buttonIsPresenting"
-        app:layout_constraintTop_toBottomOf="@id/textInAppMessaging" />
+		app:layout_constraintStart_toEndOf="@id/buttonIsPresenting"
+		app:layout_constraintTop_toBottomOf="@id/textInAppMessaging" />
 	<Button
 		android:text="Suppress"
 		android:textAllCaps="false"
 		android:id="@+id/buttonSuppress"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/buttonDismiss"
-        app:layout_constraintTop_toBottomOf="@id/textInAppMessaging" />
+		app:layout_constraintStart_toEndOf="@id/buttonDismiss"
+		app:layout_constraintTop_toBottomOf="@id/textInAppMessaging" />
 	<Button
 		android:text="Unsuppress"
 		android:textAllCaps="false"
 		android:id="@+id/buttonUnsuppress"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/buttonSuppress"
-        app:layout_constraintTop_toBottomOf="@id/textInAppMessaging" />
+		app:layout_constraintStart_toEndOf="@id/buttonSuppress"
+		app:layout_constraintTop_toBottomOf="@id/textInAppMessaging" />
 
 	<TextView
 		android:text="Variables"
 		android:textAppearance="?android:attr/textAppearanceMedium"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonIsPresenting" 
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/buttonIsPresenting"
 		android:id="@+id/textVariables" />
 	<Button
 		android:text="Fetch"
@@ -96,16 +104,16 @@
 		android:id="@+id/buttonFetch"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/textVariables"
-        app:layout_constraintTop_toBottomOf="@id/textVariables" />
+		app:layout_constraintStart_toStartOf="@id/textVariables"
+		app:layout_constraintTop_toBottomOf="@id/textVariables" />
 
 	<TextView
 		android:text="Notifications"
 		android:textAppearance="?android:attr/textAppearanceMedium"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonFetch" 
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/buttonFetch"
 		android:id="@+id/textNotifications" />
 	<Button
 		android:text="Push"
@@ -113,16 +121,16 @@
 		android:id="@+id/buttonPush"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/textNotifications"
-        app:layout_constraintTop_toBottomOf="@id/textNotifications" />
+		app:layout_constraintStart_toStartOf="@id/textNotifications"
+		app:layout_constraintTop_toBottomOf="@id/textNotifications" />
 
 	<TextView
 		android:text="Others"
 		android:textAppearance="?android:attr/textAppearanceMedium"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonPush" 
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/buttonPush"
 		android:id="@+id/textOthers" />
 	<Button
 		android:text="UserSync"
@@ -130,31 +138,31 @@
 		android:id="@+id/buttonUserSync"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/textOthers"
-        app:layout_constraintTop_toBottomOf="@id/textOthers" />
+		app:layout_constraintStart_toStartOf="@id/textOthers"
+		app:layout_constraintTop_toBottomOf="@id/textOthers" />
 	<Button
 		android:text="OptOut"
 		android:textAllCaps="false"
 		android:id="@+id/buttonOptOut"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/buttonUserSync"
-        app:layout_constraintTop_toBottomOf="@id/textOthers" />
+		app:layout_constraintStart_toEndOf="@id/buttonUserSync"
+		app:layout_constraintTop_toBottomOf="@id/textOthers" />
 	<Button
 		android:text="OptIn"
 		android:textAllCaps="false"
 		android:id="@+id/buttonOptIn"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/buttonOptOut"
-        app:layout_constraintTop_toBottomOf="@id/textOthers" />
+		app:layout_constraintStart_toEndOf="@id/buttonOptOut"
+		app:layout_constraintTop_toBottomOf="@id/textOthers" />
 	<Button
 		android:text="RenewVisitorId"
 		android:textAllCaps="false"
 		android:id="@+id/buttonRenewVisitorId"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/buttonOptIn"
-        app:layout_constraintTop_toBottomOf="@id/textOthers" />
+		app:layout_constraintStart_toEndOf="@id/buttonOptIn"
+		app:layout_constraintTop_toBottomOf="@id/textOthers" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

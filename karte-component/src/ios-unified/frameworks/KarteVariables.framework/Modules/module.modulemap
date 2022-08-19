@@ -1,5 +1,5 @@
 framework module KarteVariables {
-  umbrella header "KarteVariables.h"
+  umbrella header "KarteVariables-umbrella.h"
 
   export *
   module * { export * }
