@@ -1,2 +1,1 @@
-{"ios":{"Core":"2.13.0","InAppMessaging":"2.8.0","Notification":"2.4.0","Variables":"2.1.0"},
- "android":{"Core":"2.15.0","InAppMessaging":"2.11.0","Notifications":"2.8.0","Variables":"2.2.0"}}
+{"ios":{"Core":"2.21.0","InAppMessaging":"2.11.0","Notification":"2.7.1","Variables":"2.4.1"},"android":{"Core":"2.19.0","InAppMessaging":"2.13.0","Notifications":"2.8.0","Variables":"2.2.0"}}

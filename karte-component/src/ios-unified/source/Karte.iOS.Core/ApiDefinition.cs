@@ -133,6 +133,11 @@ namespace Karte.iOS.Core
         [Export("identify:")]
         KRTTrackingTask Identify(NSDictionary values);
 
+        // +(KRTTrackingTask * _Nonnull)attribute:(NSDictionary<NSString *,id> * _Nonnull)values;
+        [Static]
+        [Export("attribute:")]
+        KRTTrackingTask Attribute(NSDictionary values);
+
         // +(KRTTrackingTaskXamarin * _Nonnull)view:(NSString * _Nonnull)viewName;
         [Static]
         [Export("view:")]
@@ -201,6 +206,10 @@ namespace Karte.iOS.Core
         [Static]
         [Export("setUserSyncScriptWithWebView:")]
         void SetUserSyncScriptWithWebView(WKWebView webView);
-    }
 
+        // +(NSString * _Nullable)getUserSyncScript __attribute__((warn_unused_result("")));
+        [Static]
+        [NullAllowed, Export("getUserSyncScript")]
+        string UserSyncScript { get; }
+    }
 }

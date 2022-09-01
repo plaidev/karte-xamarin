@@ -11,6 +11,7 @@
 #endif
 
 #import "KarteVariables.h"
+#import "KRTTracker+Variables.h"
 
 FOUNDATION_EXPORT double KarteVariablesVersionNumber;
 FOUNDATION_EXPORT const unsigned char KarteVariablesVersionString[];

@@ -81,7 +81,22 @@ namespace Karte.iOS.Variables
 		[Static]
 		[Export("variableForKey:")]
 		KRTVariable VariableForKey(string key);
-    }
+
+		// @property (readonly, copy, nonatomic, class) NSDate * _Nullable lastFetchTime;
+		[Static]
+		[NullAllowed, Export ("lastFetchTime", ArgumentSemantic.Copy)]
+		NSDate LastFetchTime { get; }
+
+		// @property (readonly, nonatomic, class) enum KRTLastFetchStatus lastFetchStatus;
+		[Static]
+		[Export ("lastFetchStatus")]
+		KRTLastFetchStatus LastFetchStatus { get; }
+
+		// +(BOOL)hasSuccessfulLastFetchInSeconds:(NSTimeInterval)inSeconds __attribute__((warn_unused_result("")));
+		[Static]
+		[Export ("hasSuccessfulLastFetchInSeconds:")]
+		bool HasSuccessfulLastFetchInSeconds (double inSeconds);
+  }
 
 }
 

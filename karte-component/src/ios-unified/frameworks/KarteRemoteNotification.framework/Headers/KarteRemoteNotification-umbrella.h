@@ -11,6 +11,8 @@
 #endif
 
 #import "KarteRemoteNotification.h"
+#import "KRTApp+RemoteNotification.h"
+#import "KRTTracker+RemoteNotification.h"
 
 FOUNDATION_EXPORT double KarteRemoteNotificationVersionNumber;
 FOUNDATION_EXPORT const unsigned char KarteRemoteNotificationVersionString[];

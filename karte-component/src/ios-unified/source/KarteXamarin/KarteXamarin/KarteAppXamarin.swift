@@ -197,6 +197,13 @@ public class TrackerXamarin: NSObject {
     
     @objc
     @discardableResult
+    public static func attribute(_ values: NSDictionary) -> TrackingTaskXamarin {
+        let task = Tracker.attribute(JSONConvertibleConverter.convert(values as! [String : Any]))
+        return TrackingTaskXamarin(trackingTask: task)
+    }
+
+    @objc
+    @discardableResult
     public static func view(_ viewName: String) -> TrackingTaskXamarin {
         let task = Tracker.view(viewName, title: nil)
         return TrackingTaskXamarin(trackingTask: task)
@@ -319,7 +326,12 @@ public class UserSyncXamarin: NSObject {
     public static func setUserSyncScript(_ webView: WKWebView) {
         UserSync.setUserSyncScript(webView)
     }
-    
+
+    @objc(getUserSyncScript)
+    public static func getUserSyncScript() -> String? {
+        return UserSync.getUserSyncScript()
+    }
+
     deinit {
     }
 }
